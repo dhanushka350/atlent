@@ -1,10 +1,8 @@
 package com.atlent.atlent.controllers;
 
-import com.atlent.atlent.dto.User;
+import com.atlent.atlent.dto.UserDto;
 import com.atlent.atlent.service.User_Service;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
@@ -23,12 +21,12 @@ public class LoginController {
 
         boolean res = false;
 
-        User user = new User();
-        user.setUser(name);
-        user.setPass(password);
+        UserDto userDto = new UserDto();
+        userDto.setUser(name);
+        userDto.setPass(password);
 
         try {
-            res = service.check_login(user);
+            res = service.check_login(userDto);
         } catch (Exception e) {
             e.printStackTrace();
         }

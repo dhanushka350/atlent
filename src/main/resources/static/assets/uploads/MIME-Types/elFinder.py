@@ -37,7 +37,7 @@ class connector():
 		'uploadDeny': [],
 		'uploadOrder': ['deny', 'allow'],
 		# 'aclObj': None, # TODO
-		# 'aclRole': 'user', # TODO
+		# 'aclRole': 'userDto', # TODO
 		'defaults': {
 			'read': True,
 			'write': True,

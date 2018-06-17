@@ -2,7 +2,7 @@ package com.atlent.atlent.dto;
 
 import java.io.Serializable;
 
-public class User implements Serializable {
+public class UserDto implements Serializable {
     private static final long serialVersionUID = 6921131386869801728L; // meka aniwaryenma danna ona
 
     private String user;
@@ -30,7 +30,7 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "UserDto{" +
                 "user='" + user + '\'' +
                 ", pass='" + pass + '\'' +
                 '}';

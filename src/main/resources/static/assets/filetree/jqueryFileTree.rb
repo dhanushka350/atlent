@@ -30,7 +30,7 @@ puts "<ul class=\"jqueryFileTree\" style=\"display: none;\">"
 begin
 	path = root + "/" + dir 
 
-	# chdir() to user requested dir (root + "/" + dir) 
+	# chdir() to userDto requested dir (root + "/" + dir)
 	Dir.chdir(File.expand_path(path).untaint);
 	
 	# check that our base path still begins with root path

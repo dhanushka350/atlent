@@ -1,7 +1,7 @@
 package com.atlent.atlent.serviceImpl;
 
 import com.atlent.atlent.dto.StudentDto;
-import com.atlent.atlent.dto.User;
+import com.atlent.atlent.dto.UserDto;
 import com.atlent.atlent.models.Student;
 import com.atlent.atlent.models.SystemUser;
 import com.atlent.atlent.repository.StudentDao;
@@ -14,7 +14,7 @@ import javax.transaction.Transactional;
 
 @Service
 @Transactional
-public class Service_Impl implements User_Service {
+public class User_Service_Impl implements User_Service {
 
     @Autowired
     private SystemUserDao dao;
@@ -22,10 +22,10 @@ public class Service_Impl implements User_Service {
     private StudentDao studentDao;
 
     @Override
-    public boolean check_login(User user) throws Exception {
+    public boolean check_login(UserDto userDto) throws Exception {
 
         boolean res = false;
-        SystemUser systemUser = dao.findSystemUserByUserEqualsAndPasswordEquals(user.getUser(), user.getPass());
+        SystemUser systemUser = dao.findSystemUserByUserEqualsAndPasswordEquals(userDto.getUser(), userDto.getPass());
         if (systemUser != null) {
             res = true;
         }

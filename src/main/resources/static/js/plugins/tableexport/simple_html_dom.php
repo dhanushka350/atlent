@@ -16,12 +16,12 @@
  *  We use this to determine how far into the file the tag in question is.  This "percentage will never be accurate as the $dom->size is the "real" number of bytes the dom was created from.
  *  but for most purposes, it's a really good estimation.
  * Paperg - Added the forceTagsClosed to the dom constructor.  Forcing tags closed is great for malformed html, but it CAN lead to parsing errors.
- * Allow the user to tell us how much they trust the html.
+ * Allow the userDto to tell us how much they trust the html.
  * Paperg add the text and plaintext to the selectors for the find syntax.  plaintext implies text in the innertext of a node.  text implies that the tag is a text node.
  * This allows for us to find tags based on the text they contain.
  * Create find_ancestor_tag to see if a tag is - at any level - inside of another specific tag.
  * Paperg: added parse_charset so that we know about the character set of the source document.
- *  NOTE:  If the user's system has a routine called get_last_retrieve_url_contents_content_type availalbe, we will assume it's returning the content-type header from the
+ *  NOTE:  If the userDto's system has a routine called get_last_retrieve_url_contents_content_type availalbe, we will assume it's returning the content-type header from the
  *  last transfer or curl_exec, and we will parse that and use it in preference to any other method of charset detection.
  *
  * Found infinite loop in the case of broken html in restore_noise.  Rewrote to protect from that.
@@ -884,7 +884,7 @@ class simple_html_dom_node
         // Now look for an inline style.
         if (isset($this->attr['style']))
         {
-            // Thanks to user gnarf from stackoverflow for this regular expression.
+            // Thanks to userDto gnarf from stackoverflow for this regular expression.
             $attributes = array();
             preg_match_all("/([\w-]+)\s*:\s*([^;]+)\s*;?/", $this->attr['style'], $matches, PREG_SET_ORDER);
             foreach ($matches as $match) {
@@ -1469,7 +1469,7 @@ class simple_html_dom
         $this->char = (++$this->pos<$this->size) ? $this->doc[$this->pos] : null; // next
 
         // If it's a BR tag, we need to set it's text to the default text.
-        // This way when we see it in plaintext, we can generate formatting that the user wants.
+        // This way when we see it in plaintext, we can generate formatting that the userDto wants.
         // since a br tag never has sub nodes, this works well.
         if ($node->tag == "br")
         {

@@ -104,7 +104,7 @@
                     <div class="widget widget-default widget-item-icon"
                          onclick="location.href='pages-address-book.html';">
                         <div class="widget-item-left">
-                            <span class="fa fa-user"></span>
+                            <span class="fa fa-userDto"></span>
                         </div>
                         <div class="widget-data">
                             <div class="widget-int num-count">375</div>
@@ -462,7 +462,7 @@
             <div class="mb-title"><span class="fa fa-sign-out"></span> Log <strong>Out</strong> ?</div>
             <div class="mb-content">
                 <p>Are you sure you want to log out?</p>
-                <p>Press No if youwant to continue work. Press Yes to logout current user.</p>
+                <p>Press No if youwant to continue work. Press Yes to logout current userDto.</p>
             </div>
             <div class="mb-footer">
                 <div class="pull-right">

@@ -10,7 +10,7 @@
 <html lang="en">
 <head>
     <!-- META SECTION -->
-    <title>Joli Admin - Responsive Bootstrap Admin Template</title>
+    <title>Student Profile</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -130,7 +130,7 @@
                                                 <div class="col-md-6">
                                                     <input type="password"
                                                            class="validate[required,minSize[5],maxSize[10]] form-control"
-                                                           id="password" value="This Will Automatically Generate and Sent To Student. The Student Can Change It Later."
+                                                           id="password" value="1234qwerty"
                                                            disabled="disabled"/>
                                                     <span class="help-block">This Will Automatically Generate and Sent To Student. The Student Can Change It Later.</span>
                                                 </div>
@@ -140,7 +140,7 @@
                                                 <div class="col-md-6">
                                                     <input type="password"
                                                            class="validate[required,equals[password]] form-control"
-                                                           value="Automatically Matched By The System" disabled="disabled"/>
+                                                           value="1234qwerty" disabled="disabled"/>
                                                     <span class="help-block">Automatically Matched By The System</span>
                                                 </div>
                                             </div>
@@ -149,9 +149,9 @@
                                                 <div class="col-md-6">
                                                     <select class="validate[required] select" id="formGender">
                                                         <option value="">Choose option</option>
-                                                        <option value="1">Male</option>
-                                                        <option value="2">Female</option>
-                                                        <option value="3">Other</option>
+                                                        <option value="Male">Male</option>
+                                                        <option value="Female">Female</option>
+                                                        <option value="Other">Other</option>
                                                     </select>
                                                     <span class="help-block">Required</span>
                                                 </div>
@@ -227,52 +227,33 @@
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Select Vehicle Classes</label>
                                                 <div class="col-md-6">
-                                                    <select multiple class="form-control select">
-                                                        <option>Option 1</option>
-                                                        <option>Option 2</option>
-                                                        <option>Option 3</option>
-                                                        <option>Option 4</option>
-                                                        <option>Option 5</option>
+                                                    <select multiple class="form-control select" id="select_license_packages">
+                                                        <option>A1</option>
+                                                        <option>A</option>
+                                                        <option>B1</option>
+                                                        <option>B</option>
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="panel panel-default form-group">
                                                 <div class="panel-heading">
-                                                    <h3 class="panel-title">Other Class of Vehicles can be driven</h3>
+                                                    <h3 class="panel-title">Class of Vehicles can be driven</h3>
                                                 </div>
                                                 <div class="panel-body">
-                                                    <p>Add class <code>.table-hover</code> to table to highlight row on hover.</p>
-                                                    <table class="table table-hover">
+                                                    <p> >> <code>License Category Information</code> << </p>
+                                                    <table class="table table-hover" id="tbl_license_packages">
                                                         <thead>
                                                         <tr>
                                                             <th>#</th>
                                                             <th>Vehicle Class</th>
                                                             <th>Description</th>
+                                                            <th>Other_Classes</th>
                                                             <th>Old Class</th>
+                                                            <th>price</th>
                                                             <th>Pictograph</th>
                                                         </tr>
                                                         </thead>
                                                         <tbody>
-                                                        <tr>
-                                                            <td>1</td>
-                                                            <td>G1</td>
-                                                            <td>Light motor cycles of which Engine
-                                                                Capacity does not exceeds 100CC</td>
-                                                            <td>D</td>
-                                                            <td>Pictograph</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2</td>
-                                                            <td>Jacob</td>
-                                                            <td>Thornton</td>
-                                                            <td>@fat</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>3</td>
-                                                            <td>Larry</td>
-                                                            <td>the Bird</td>
-                                                            <td>@twitter</td>
-                                                        </tr>
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -395,7 +376,7 @@
             <div class="mb-title"><span class="fa fa-sign-out"></span> Log <strong>Out</strong> ?</div>
             <div class="mb-content">
                 <p>Are you sure you want to log out?</p>
-                <p>Press No if you want to continue work. Press Yes to logout current user.</p>
+                <p>Press No if you want to continue work. Press Yes to logout current userDto.</p>
             </div>
             <div class="mb-footer">
                 <div class="pull-right">

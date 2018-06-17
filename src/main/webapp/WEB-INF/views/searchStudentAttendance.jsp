@@ -219,7 +219,7 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td><i class="fa fa-user"></i> Richi</td>
+                                    <td><i class="fa fa-userDto"></i> Richi</td>
                                     <td><i class="fa fa-check" style="color: green"></i></td>
                                     <td><i class="fa fa-check" style="color: green"></i></td>
                                     <td><i class="fa fa-check" style="color: green"></i></td>
@@ -252,7 +252,7 @@
                                     <td><i class="fa fa-check" style="color: green"></i></td>
                                 </tr>
                                 <tr>
-                                    <td><i class="fa fa-user"></i> Richi</td>
+                                    <td><i class="fa fa-userDto"></i> Richi</td>
                                     <td><i class="fa fa-check" style="color: green"></i></td>
                                     <td><i class="fa fa-check" style="color: green"></i></td>
                                     <td><i class="fa fa-check" style="color: green"></i></td>
@@ -285,7 +285,7 @@
                                     <td><i class="fa fa-check" style="color: green"></i></td>
                                 </tr>
                                 <tr>
-                                    <td><i class="fa fa-user"></i> Richi</td>
+                                    <td><i class="fa fa-userDto"></i> Richi</td>
                                     <td><i class="fa fa-times" style="color: red"></i></td>
                                     <td><i class="fa fa-check" style="color: green"></i></td>
                                     <td><i class="fa fa-check" style="color: green"></i></td>
@@ -318,7 +318,7 @@
                                     <td><i class="fa fa-times" style="color: red"></i></td>
                                 </tr>
                                 <tr>
-                                    <td><i class="fa fa-user"></i> Richi</td>
+                                    <td><i class="fa fa-userDto"></i> Richi</td>
 
                                     <td><i class="fa fa-times" style="color: red"></i></td>
                                     <td><i class="fa fa-times" style="color: red"></i></td>
@@ -352,7 +352,7 @@
                                     <td><i class="fa fa-check" style="color: green"></i></td>
                                 </tr>
                                 <tr>
-                                    <td><i class="fa fa-user"></i> Richi</td>
+                                    <td><i class="fa fa-userDto"></i> Richi</td>
                                     <td><i class="fa fa-check" style="color: green"></i></td>
                                     <td><i class="fa fa-check" style="color: green"></i></td>
                                     <td><i class="fa fa-check" style="color: green"></i></td>
@@ -386,7 +386,7 @@
 
                                 </tr>
                                 <tr>
-                                    <td><i class="fa fa-user"></i> Sharuk</td>
+                                    <td><i class="fa fa-userDto"></i> Sharuk</td>
                                     <td><i class="fa fa-check" style="color: green"></i></td>
                                     <td><i class="fa fa-check" style="color: green"></i></td>
                                     <td><i class="fa fa-check" style="color: green"></i></td>
@@ -419,7 +419,7 @@
                                     <td><i class="fa fa-check" style="color: green"></i></td>
                                 </tr>
                                 <tr>
-                                    <td><i class="fa fa-user"></i> Richi</td>
+                                    <td><i class="fa fa-userDto"></i> Richi</td>
                                     <td><i class="fa fa-check" style="color: green"></i></td>
                                     <td><i class="fa fa-times" style="color: red"></i></td>
                                     <td><i class="fa fa-times" style="color: red"></i></td>
@@ -452,7 +452,7 @@
                                     <td><i class="fa fa-times" style="color: red"></i></td>
                                 </tr>
                                 <tr>
-                                    <td><i class="fa fa-user"></i> fuhimer Rahuman</td>
+                                    <td><i class="fa fa-userDto"></i> fuhimer Rahuman</td>
                                     <td><i class="fa fa-times" style="color: red"></i></td>
                                     <td><i class="fa fa-check" style="color: green"></i></td>
                                     <td><i class="fa fa-check" style="color: green"></i></td>
@@ -507,7 +507,7 @@
             <div class="mb-title"><span class="fa fa-sign-out"></span> Log <strong>Out</strong> ?</div>
             <div class="mb-content">
                 <p>Are you sure you want to log out?</p>
-                <p>Press No if youwant to continue work. Press Yes to logout current user.</p>
+                <p>Press No if youwant to continue work. Press Yes to logout current userDto.</p>
             </div>
             <div class="mb-footer">
                 <div class="pull-right">

@@ -36,7 +36,7 @@ class elFinder {
 		'dateFormat'   => 'j M Y H:i',  // file modification date format
 		'logger'       => null,         // object logger
 		'aclObj'       => null,         // acl object (not implemented yet)
-		'aclRole'      => 'user',       // role for acl
+		'aclRole'      => 'userDto',       // role for acl
 		'defaults'     => array(        // default permisions
 			'read'   => true,
 			'write'  => true,

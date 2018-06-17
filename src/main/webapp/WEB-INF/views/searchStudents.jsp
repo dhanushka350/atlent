@@ -118,7 +118,7 @@
                     <div class="panel panel-default">
                         <div class="panel-body profile">
                             <div class="profile-image">
-                                <img src="/assets/images/users/user.jpg" alt="Dmitry Ivaniuk"/>
+                                <img src="/assets/images/users/userDto.jpg" alt="Dmitry Ivaniuk"/>
                             </div>
                             <div class="profile-data">
                                 <div class="profile-data-name">Dmitry Ivaniuk</div>
@@ -323,7 +323,7 @@
             <div class="mb-title"><span class="fa fa-sign-out"></span> Log <strong>Out</strong> ?</div>
             <div class="mb-content">
                 <p>Are you sure you want to log out?</p>
-                <p>Press No if youwant to continue work. Press Yes to logout current user.</p>
+                <p>Press No if youwant to continue work. Press Yes to logout current userDto.</p>
             </div>
             <div class="mb-footer">
                 <div class="pull-right">

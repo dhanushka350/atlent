@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 @Transactional
@@ -48,9 +50,28 @@ public class User_Service_Impl implements User_Service {
         student.setPassword(studentDto.getPassword());
         Student save = studentDao.save(student);
 
-        if(save != null){
+        if (save != null) {
             res = true;
         }
         return res;
+    }
+
+    @Override
+    public List<StudentDto> getAllStudentList() throws Exception {
+        List<StudentDto> list = new ArrayList<>();
+        StudentDto dto = null;
+        for (Student student : studentDao.findAll()) {
+            dto = new StudentDto();
+            dto.setNic(student.getNic());
+            dto.setAddress(student.getAddress());
+            dto.setAge(student.getAge());
+            dto.setDate_of_birth(student.getDate_of_birth());
+            dto.setGender(student.getGender());
+            dto.setMobile(student.getMobile());
+            dto.setName(student.getName());
+            list.add(dto);
+        }
+        ;
+        return list;
     }
 }

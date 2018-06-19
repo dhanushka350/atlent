@@ -16,6 +16,7 @@
 // on load actions
 $(function () {
     LicensePackages.getAllPackage();
+    Student.allStudent();
 });
 
 
@@ -89,6 +90,48 @@ var Student = {
         var currentTime = new Date().getFullYear();
         $('#txt_age').val(currentTime - dob + " Years Old.");
 
+    },
+
+    allStudent: function (e) {
+        $('#txt_student tbody tr td').remove();
+
+        $.ajax({
+            url: "/Student/all/student/list",
+            dataType: 'json',
+            contentType: "application/json",
+            type: 'GET',
+            success: function (data, textStatus, jqXHR) {
+                if (data.nic === null) {
+                    $('#txt_student').append('<tr>\n\
+                               <td colspan=9><p align="center">No Records found\n\
+                               </p></td>\n\
+                               </tr>');
+                } else {
+                    for (var i = 0; i < data.length; i++) {
+                        $('#txt_student').append('<tr>\n\
+                                    <td>' + (i + 1) + '</td>\n\
+                                    <td>' + data[i].name + '</td>\n\
+                                    <td>' + data[i].nic + '</td>\n\
+                                    <td>' + data[i].gender + '</td>\n\
+                                    <td>' + data[i].date_of_birth + '</td>\n\
+                                    <td>' + data[i].age + '</td>\n\
+                                    <td>' + data[i].address + '</td>\n\
+                                    <td>' + data[i].mobile + '</td>\n\
+                                    <td><a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Details </a></td>\n\
+                                    </tr>');
+
+                    }
+                }
+
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(jqXHR + "---" + textStatus + "---" + errorThrown);
+            },
+            beforeSend: function (xhr) {
+
+            }
+        });
+        e.preventDefault();
     }
 };
 
@@ -121,7 +164,7 @@ var LicensePackages = {
                         .val('0');
                     for (var i = 0; i < data.length; i++) {
                         $('#tbl_license_packages').append('<tr>\n\
-                                    <td>' + (i+1) + '</td>\n\
+                                    <td>' + (i + 1) + '</td>\n\
                                     <td>' + data[i].vehicle_class + '</td>\n\
                                     <td>' + data[i].description + '</td>\n\
                                     <td>' + data[i].otherClasses + '</td>\n\

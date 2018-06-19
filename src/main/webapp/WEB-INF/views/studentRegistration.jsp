@@ -93,7 +93,7 @@
                                 <li>
                                     <a href="#step-4">
                                         <span class="stepNumber">4</span>
-                                        <span class="stepDesc">Medical Informations<br/><small>Is Student Have Any Medical Issue?</small></span>
+                                        <span class="stepDesc">Medical Information<br/><small>Is Student Have Any Medical Issue?</small></span>
                                     </a>
                                 </li>
                             </ul>
@@ -101,6 +101,7 @@
                                 <h4>Student Personal Information</h4>
                                 <p>Please fill out all the fields as you can.
                                 you can edit or update this information later.</p>
+                                <a href="/all/student"> <span class="fa fa-tasks"> </span> <span class="xn-text"></span> All Students</a>
                                 <!-- START SUCCESS PANEL -->
                                 <div class="panel panel-success">
                                     <div class="panel-heading">

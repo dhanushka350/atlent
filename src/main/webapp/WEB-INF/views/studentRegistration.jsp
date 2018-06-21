@@ -226,14 +226,22 @@
                                     <div class="panel-body">
                                         <form role="form" class="form-horizontal">
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label">Select Vehicle Classes</label>
+                                                <label class="col-md-3 control-label">Select Type</label>
                                                 <div class="col-md-6">
-                                                    <select multiple class="form-control select" id="select_license_packages">
-                                                        <option>A1</option>
-                                                        <option>A</option>
-                                                        <option>B1</option>
+                                                    <select class="form-control select" id="select_license_packages">
+                                                        <option>Only Bike</option>
+                                                        <option>sahallu</option>
+                                                        <option>bara wahana</option>
                                                         <option>B</option>
                                                     </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Price Rs.</label>
+                                                <div class="col-md-6">
+                                                    <input type="text"
+                                                           class="validate[required,custom[double]] form-control" id="txt_pack_price" disabled="disabled"/>
+                                                    <span class="help-block">License Type Price</span>
                                                 </div>
                                             </div>
                                             <div class="panel panel-default form-group">
@@ -251,7 +259,6 @@
                                                             <th>Other_Classes</th>
                                                             <th>Old Class</th>
                                                             <th>price</th>
-                                                            <th>Pictograph</th>
                                                         </tr>
                                                         </thead>
                                                         <tbody>

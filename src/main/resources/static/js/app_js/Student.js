@@ -18,8 +18,6 @@ $(function () {
     LicensePackages.getAllPackage();
     Student.allStudent();
 });
-
-
 // call function - calculate student age
 $("#txt_dob").keyup(function () {
 
@@ -170,7 +168,6 @@ var LicensePackages = {
                                     <td>' + data[i].otherClasses + '</td>\n\
                                     <td>' + data[i].oldClass + '</td>\n\
                                     <td>' + data[i].price + '</td>\n\
-                                    <td>' + data[i].pictograph + '</td>\n\
                                     </tr>');
 
                         $('#select_license_packages').append($('<option>', {

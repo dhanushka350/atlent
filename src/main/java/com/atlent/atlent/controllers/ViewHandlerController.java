@@ -30,10 +30,10 @@ public class ViewHandlerController {
         System.out.println("working");
         return new ModelAndView("studentRegistration");
     }
-    @RequestMapping(value = {"student/promotion"},method = RequestMethod.GET)
+    @RequestMapping(value = {"student/exam/schedule"},method = RequestMethod.GET)
     public ModelAndView StudentPromotion(){
         System.out.println("working");
-        return new ModelAndView("studentPromotion");
+        return new ModelAndView("exam_schedule");
     }
     @RequestMapping(value = {"student/attendance"},method = RequestMethod.GET)
     public ModelAndView StudentAttendance(){
@@ -60,10 +60,10 @@ public class ViewHandlerController {
         System.out.println("working");
         return new ModelAndView("teachersRegistration");
     }
-    @RequestMapping(value = {"all/teachers/accounts"},method = RequestMethod.GET)
+    @RequestMapping(value = {"page/not found"},method = RequestMethod.GET)
     public ModelAndView teachersList(){
         System.out.println("working");
-        return new ModelAndView("allTeachers");
+        return new ModelAndView("pages-error-404");
     }
 
 }

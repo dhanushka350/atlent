@@ -33,7 +33,6 @@
     <%--</div>--%>
     <%--</li>--%>
     <li class="xn-title">NAVIGATION</li>
-    <li class="xn-title"></li>
     <br>
     <br>
     <br>
@@ -75,28 +74,31 @@
         <%--</ul>--%>
     <%--</li>--%>
     <li class="active">
-        <a href="/admin"><span class="fa fa-money"></span> <span class="xn-text">Payment Methods</span></a>
+        <a href="/page/not found"><span class="fa fa-money"></span> <span class="xn-text">Payment Methods</span></a>
     </li>
     <li class="active">
-        <a href="/admin"><span class="fa fa-certificate"></span> <span class="xn-text">Exam Results</span></a>
+        <a href="/page/not found"><span class="fa fa-certificate"></span> <span class="xn-text">Exam Results</span></a>
     </li>
     <li class="active">
-        <a href="/admin"><span class="fa fa-calendar"></span> <span class="xn-text">Training Schedule</span></a>
+        <a href="/student/exam/schedule"><span class="fa fa-certificate"></span> <span class="xn-text">Exam Schedules</span></a>
     </li>
     <li class="active">
-        <a href="/admin"><span class="fa fa-envelope"></span> <span class="xn-text">SMS Service</span></a>
+        <a href="/page/not found"><span class="fa fa-calendar"></span> <span class="xn-text">Training Schedule</span></a>
     </li>
     <li class="active">
-        <a href="/admin"><span class="fa fa-phone"></span> <span class="xn-text">Call Service</span></a>
+        <a href="/page/not found"><span class="fa fa-envelope"></span> <span class="xn-text">SMS Service</span></a>
     </li>
     <li class="active">
-        <a href="/admin"><span class="fa fa-shield"></span> <span class="xn-text">Staff Members</span></a>
+        <a href="/page/not found"><span class="fa fa-phone"></span> <span class="xn-text">Call Service</span></a>
     </li>
     <li class="active">
-        <a href="/admin"><span class="fa fa-compass"></span> <span class="xn-text">Tech Support</span></a>
+        <a href="/page/not found"><span class="fa fa-shield"></span> <span class="xn-text">Staff Members</span></a>
     </li>
     <li class="active">
-        <a href="/admin"><span class="fa fa-sign-out"></span> <span class="xn-text">Log Out</span></a>
+        <a href="/page/not found"><span class="fa fa-compass"></span> <span class="xn-text">Tech Support</span></a>
+    </li>
+    <li class="active">
+        <a href="/page/not found"><span class="fa fa-sign-out"></span> <span class="xn-text">Log Out</span></a>
     </li>
     <%--<li class="xn-openable">--%>
         <%--<a href="#"><span class="fa fa-shield"></span> <span class="xn-text">Learning</span></a>--%>

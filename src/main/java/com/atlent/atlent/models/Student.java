@@ -5,12 +5,13 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "t_student")
 @XmlRootElement
-public class Student implements Serializable
-{
+public class Student implements Serializable {
 
     private static final long serialVersionUID = -8865499562678933283L;
 
@@ -46,10 +47,15 @@ public class Student implements Serializable
     @Column(name = "address")
     private String address;
 
+    @OneToOne(fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL,
+            mappedBy = "student")
+    private Registration registration;
+
     public Student() {
     }
 
-    public Student(String nic, String name, String password, String gender, String date_of_birth, String age, int mobile, String address) {
+    public Student(String nic, String name, String password, String gender, String date_of_birth, String age, int mobile, String address, Registration registration) {
         this.nic = nic;
         this.name = name;
         this.password = password;
@@ -58,6 +64,11 @@ public class Student implements Serializable
         this.age = age;
         this.mobile = mobile;
         this.address = address;
+        this.registration = registration;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
     public String getNic() {
@@ -124,10 +135,18 @@ public class Student implements Serializable
         this.address = address;
     }
 
+    public Registration getRegistration() {
+        return registration;
+    }
+
+    public void setRegistration(Registration registration) {
+        this.registration = registration;
+    }
+
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("Student{");
-        sb.append("nic=").append(nic);
+        sb.append("nic='").append(nic).append('\'');
         sb.append(", name='").append(name).append('\'');
         sb.append(", password='").append(password).append('\'');
         sb.append(", gender='").append(gender).append('\'');
@@ -135,6 +154,7 @@ public class Student implements Serializable
         sb.append(", age='").append(age).append('\'');
         sb.append(", mobile=").append(mobile);
         sb.append(", address='").append(address).append('\'');
+        sb.append(", registration=").append(registration);
         sb.append('}');
         return sb.toString();
     }

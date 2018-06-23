@@ -19,9 +19,11 @@
 
     <!-- CSS INCLUDE -->
     <link rel="stylesheet" type="text/css" id="theme" href="/css/theme-default.css"/>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet"/>
     <!-- EOF CSS INCLUDE -->
 </head>
-<body>
+<body onload="Exam.allExams();">
 <!-- START PAGE CONTAINER -->
 <div class="page-container">
 
@@ -49,7 +51,7 @@
         <!-- PAGE TITLE -->
         <div class="page-title">
             <h2><span class="fa fa-calendar"></span> Schedules Information
-                <small>(Upcoming)</small>
+                <small>(All)</small>
             </h2>
         </div>
         <!-- END PAGE TITLE -->
@@ -66,7 +68,7 @@
                             </p>
                             <form class="form-horizontal">
                                 <div class="form-group">
-                                    <div class="col-md-8">
+                                    <div class="col-md-5">
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <span class="fa fa-search"></span>
@@ -78,15 +80,23 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-7">
                                         <div class="form-group">
-                                            <div class="col-md-6">
+                                            <div class="col-md-4">
                                                 <input type="text"
                                                        class="validate[required,custom[integer],min[18],max[120]] form-control"
-                                                       id="txt_new_exam"/>
+                                                       id="txt_new_exam" placeholder="DATE"/>
+                                                <span class="help-block">Required, format YYYY-MM-DD</span>
                                             </div>
-                                            <div class="col-md-6">
-                                                <button type="button" class="btn btn-success mb-control col-md-6">Add Exam
+                                            <div class="col-md-4">
+                                                <input type="text"
+                                                       class="validate[required,custom[integer],min[18],max[120]] form-control"
+                                                       id="txt_new_time" placeholder="TIME"/>
+                                                <span class="help-block">Required, format hh-mm am/pm</span>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <button type="button" class="btn btn-success mb-control col-md-6"
+                                                        id="btn_save_exam">Add Exam
                                                 </button>
                                             </div>
                                         </div>
@@ -107,25 +117,31 @@
                               action="javascript:alert('Form #validate submited');">
                             <div class="form-group">
                                 <label class="col-md-3 control-label">Exam Date :</label>
-                                <div class="col-md-6">
-                                    <select class="validate[required] select" id="select_exam">
-                                        <option value="">2018-04-25</option>
-                                        <option value="">2018-05-25</option>
-                                        <option value="">2018-06-25</option>
+                                <div class="col-md-3">
+                                    <select id="select_exam">
+
                                     </select>
                                 </div>
-                            </div>
-                        </form>
-                        <br>
-                        <form role="form" class="form-horizontal"
-                              action="javascript:alert('Form #validate submited');">
-                            <div class="form-group">
                                 <label class="col-md-3 control-label">NIC:</label>
                                 <div class="col-md-3">
                                     <input type="text"
                                            class="validate[required,custom[integer],min[18],max[120]] form-control"
                                            id="txt_nic"/>
                                     <span class="help-block">Required, 9 Numbers with V or X</span>
+                                </div>
+                            </div>
+                        </form>
+                        <br>
+                        <form role="form" class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Exam Type :</label>
+                                <div class="col-md-3">
+                                    <select class="validate[required] select" id="select_exam_states">
+                                        <option value="Pending">Pending</option>
+                                        <option value="Ongoing">Ongoing</option>
+                                        <option value="Finished">Finished</option>
+                                    </select>
+                                    <span class="help-block"></span>
                                 </div>
                                 <label class="col-md-3 control-label">Name:</label>
                                 <div class="col-md-3">
@@ -136,16 +152,17 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-3 control-label">Time:</label>
-                                <div class="col-md-3    ">
-                                    <input type="text"
-                                           class="validate[required,custom[integer],min[18],max[120]] form-control"
-                                           id="txt_time"/>
-                                    <span class="help-block">Format HH-MM-MM</span>
+                                <label class="col-md-3 control-label">States :</label>
+                                <div class="col-md-3">
+                                    <select class="validate[required] select" id="select_states">
+                                        <option value="Pending">Pass</option>
+                                        <option value="Ongoing">Failed</option>
+                                        <option value="Finished">Result Pending</option>
+                                    </select>
+                                    <span class="help-block"></span>
                                 </div>
-
                                 <label class="col-md-3 control-label">Date:</label>
-                                <div class="col-md-3    ">
+                                <div class="col-md-3">
                                     <input type="text"
                                            class="validate[required,custom[integer],min[18],max[120]] form-control"
                                            id="txt_age" disabled="disabled"/>
@@ -154,14 +171,16 @@
 
                             </div>
                             <div class="form-group">
-                                <label class="col-md-3 control-label">Exam Type :</label>
-                                <div class="col-md-6">
-                                    <select class="validate[required] select" id="select_exam_states">
-                                        <option value="Pending">Pending</option>
-                                        <option value="Ongoing">Ongoing</option>
-                                        <option value="Finished">Finished</option>
-                                    </select>
-                                    <span class="help-block"></span>
+                                <div class="col-md-6"></div>
+                                <label class="col-md-3 control-label">Time:</label>
+                                <div class="col-md-3    ">
+                                    <input type="text"
+                                           class="validate[required,custom[integer],min[18],max[120]] form-control"
+                                           id="txt_time" disabled="disabled"/>
+                                    <span class="help-block">Format HH-MM-MM</span>
+                                    <button type="button" class="btn btn-success mb-control col-md-6 col-md-offset-6"
+                                            id="btn_save_exam_schedule">Add Schedule
+                                    </button>
                                 </div>
                             </div>
                         </form>
@@ -353,7 +372,7 @@
 <script type="text/javascript" src="/js/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery/jquery-ui.min.js"></script>
 <script type="text/javascript" src="/js/plugins/bootstrap/bootstrap.min.js"></script>
-<script type='text/javascript' src='/js/plugins/bootstrap/bootstrap-select.js'></script>
+
 <!-- END PLUGINS -->
 
 <!-- START THIS PAGE PLUGINS-->
@@ -367,9 +386,38 @@
 <script type="text/javascript" src="/js/plugins/tableexport/jspdf/jspdf.js"></script>
 <script type="text/javascript" src="/js/plugins/tableexport/jspdf/libs/base64.js"></script>
 <script type="text/javascript" src="/js/settings.js"></script>
+<script type='text/javascript' src='/js/plugins/noty/jquery.noty.js'></script>
+<script type='text/javascript' src='/js/plugins/noty/layouts/topCenter.js'></script>
+<script type='text/javascript' src='/js/plugins/noty/layouts/topLeft.js'></script>
+<script type='text/javascript' src='/js/plugins/noty/layouts/topRight.js'></script>
+<script type='text/javascript' src='/js/plugins/noty/themes/default.js'></script>
+<script type="text/javascript">
+    function notyConfirm() {
+        noty({
+            text: 'Do you want to continue?',
+            layout: 'topRight',
+            buttons: [
+                {
+                    addClass: 'btn btn-success btn-clean', text: 'Ok', onClick: function ($noty) {
+                        $noty.close();
+                        noty({text: 'You clicked "Ok" button', layout: 'topRight', type: 'success'});
+                    }
+                },
+                {
+                    addClass: 'btn btn-danger btn-clean', text: 'Cancel', onClick: function ($noty) {
+                        $noty.close();
+                        noty({text: 'You clicked "Cancel" button', layout: 'topRight', type: 'error'});
+                    }
+                }
+            ]
+        })
+    }
 
+</script>
 <script type="text/javascript" src="/js/plugins.js"></script>
 <script type="text/javascript" src="/js/actions.js"></script>
+<script type="text/javascript" src="/js/app_js/Exam.js"></script>
+<script type='text/javascript' src='/js/plugins/bootstrap/bootstrap-select.js'></script>
 <!-- END TEMPLATE -->
 </body>
 </html>

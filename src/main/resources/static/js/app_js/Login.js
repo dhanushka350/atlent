@@ -35,7 +35,7 @@ function login() {
         }, function (result) {
             if (result) {
                 login.addLoggedUser();
-                alert("wada");
+
                 window.location.replace("/admin_dashboard");
 
 

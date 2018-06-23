@@ -165,7 +165,7 @@
                                 <div class="col-md-3">
                                     <input type="text"
                                            class="validate[required,custom[integer],min[18],max[120]] form-control"
-                                           id="txt_age" disabled="disabled"/>
+                                           id="txt_ex_date" disabled="disabled" style="color: red; text-align: center"/>
                                     <span class="help-block">Exam will held on this day </span>
                                 </div>
 
@@ -176,7 +176,7 @@
                                 <div class="col-md-3    ">
                                     <input type="text"
                                            class="validate[required,custom[integer],min[18],max[120]] form-control"
-                                           id="txt_time" disabled="disabled"/>
+                                           id="txt_time" disabled="disabled" style="color: red; text-align: center"/>
                                     <span class="help-block">Format HH-MM-MM</span>
                                     <button type="button" class="btn btn-success mb-control col-md-6 col-md-offset-6"
                                             id="btn_save_exam_schedule">Add Schedule

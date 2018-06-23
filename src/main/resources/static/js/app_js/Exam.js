@@ -20,9 +20,10 @@ $("#btn_save_exam").click(function (e) {
     e.preventDefault();
 });
 
-$('select_exam').on('change', function() {
-    alert( this.value );
+$('#select_exam').on('change', function () {
+    Exam.getExam();
 });
+
 
 var Exam = {
 
@@ -63,7 +64,7 @@ var Exam = {
 
     },
     allExams: function () {
-        alert("called");
+
         $.ajax({
             url: "/exam/all/exam/list",
             dataType: 'json',
@@ -77,7 +78,7 @@ var Exam = {
                     .end()
                     .append('<option>Select Exam Date</option>')
                     .val('0');
-                alert("ok");
+
                 for (var i = 0; i < data.length; i++) {
                     $('#select_exam').append($('<option>', {
                         value: data[i].id,
@@ -97,16 +98,25 @@ var Exam = {
     getExam: function () {
 
         var id = $("#select_exam").val();
-        alert("wada");
+        var e = {};
+        e["id"] = id;
+        e["date"] = "";
+        e["states"] = "";
+
+
+        var d = JSON.stringify(e);
         $.ajax({
-            url: '/exam/request/new/exam',
+            url: '/exam/get/exam',
             dataType: 'json',
             contentType: "application/json",
-            type: 'GET',
-            data: id,
+            type: 'POST',
+            data: d,
             success: function (data, textStatus, jqXHR) {
-                Exam.allExams();
-                noty({text: 'Exam saved. Exam date ' + data.date, layout: 'topRight', type: 'success'});
+                noty({text: 'Exam details loaded ', layout: 'topRight', type: 'success'});
+                alert(data.date);
+                $("#txt_ex_date").val(data.date);
+                $("#txt_time").val(data.states);
+                //Exam.allExams();
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 noty({text: 'There was an error ' + errorThrown, layout: 'topRight', type: 'error'});
@@ -117,7 +127,7 @@ var Exam = {
 
             },
             beforeSend: function (xhr) {
-                noty({text: 'Please wait..', layout: 'topRight', type: 'information'});
+                noty({text: 'Requesting data..', layout: 'topRight', type: 'information'});
             }
         });
 

@@ -38,13 +38,14 @@ public class ExamController {
         LOG.info("END: get all exam dates. > found " + list.size() + " dates");
         return list;
     }
-    @RequestMapping(value = {"get/exam"}, method = RequestMethod.GET)
+
+    @RequestMapping(value = {"get/exam"}, method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
     @ResponseBody
-    public ExamDto getExam(@RequestParam(value = "id") String id) {
+    public ExamDto getExam(@RequestBody ExamDto dto) {
         LOG.info("START: get exam");
         ExamDto data = null;
         try {
-            data = service.getById(id);
+            data = service.getById(dto.getId() + "");
         } catch (Exception e) {
             e.printStackTrace();
         }

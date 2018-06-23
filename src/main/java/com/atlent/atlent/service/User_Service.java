@@ -1,7 +1,4 @@
 package com.atlent.atlent.service;
-
-
-import com.atlent.atlent.dto.MedicalDto;
 import com.atlent.atlent.dto.StudentDto;
 import com.atlent.atlent.dto.UserDto;
 

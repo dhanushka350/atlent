@@ -26,21 +26,21 @@ public class LisenceCategory implements Serializable {
     private String price;
     @Column(name = "Pictograph")
     private String Pictograph;
+    @ManyToOne
+    @JoinColumn(name = "packageID")
+    private Package aPackage;
 
     public LisenceCategory() {
     }
 
-    public LisenceCategory(String vehicle_class, String description, String other_Classes, String old_Class, String price, String pictograph) {
+    public LisenceCategory(String vehicle_class, String description, String other_Classes, String old_Class, String price, String pictograph, Package aPackage) {
         this.vehicle_class = vehicle_class;
         Description = description;
         Other_Classes = other_Classes;
         Old_Class = old_Class;
         this.price = price;
         Pictograph = pictograph;
-    }
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
+        this.aPackage = aPackage;
     }
 
     public int getId() {
@@ -99,6 +99,14 @@ public class LisenceCategory implements Serializable {
         Pictograph = pictograph;
     }
 
+    public Package getaPackage() {
+        return aPackage;
+    }
+
+    public void setaPackage(Package aPackage) {
+        this.aPackage = aPackage;
+    }
+
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("LisenceCategory{");
@@ -109,6 +117,7 @@ public class LisenceCategory implements Serializable {
         sb.append(", Old_Class='").append(Old_Class).append('\'');
         sb.append(", price='").append(price).append('\'');
         sb.append(", Pictograph='").append(Pictograph).append('\'');
+        sb.append(", aPackage=").append(aPackage);
         sb.append('}');
         return sb.toString();
     }

@@ -1,97 +1,38 @@
-// Dear programmer:
-// When I wrote this code, only god and
-// I knew how it worked.
-// Now, only god knows it!
-//
-// Therefore, if you are trying to optimize
-// this routing and it fails (most surely),
-// please increase this counter as a
-// warning for the next person:
-//
-// total_hours_wasted_here = 8min:
-//
-// Dhanushka
+var exam;
+var student;
+var states;
+$(function () {
 
-
-// $(function () {
-//     alert("wadaaaaa");
-//     Exam.allSchedules();
-// });
-
-$("#txt_nic").keyup(function () {
-
-    Exam.getStudent();
-
+    $(document).on('click', '.failed', function (e) {
+        student = $(this).closest('tr').find('td:eq(2)').text();
+        exam = $(this).closest('tr').find('td:eq(3)').text();
+        states = "failed";
+        Exam_Result.addNewExamSchedule();
+        $(this).closest('tr').find('td:eq(5)').text("failed");
+        e.preventDefault();
+    });
+    $(document).on('click', '.pass', function (e) {
+        student = $(this).closest('tr').find('td:eq(2)').text();
+        exam = $(this).closest('tr').find('td:eq(3)').text();
+        states = "pass";
+        Exam_Result.addNewExamSchedule();
+        $(this).closest('tr').find('td:eq(5)').text("pass");
+        e.preventDefault();
+    });
 });
-$("#btn_save_exam").click(function (e) {
 
-    Exam.addNewExam();
-
-    e.preventDefault();
-});
-$("#btn_save_exam_schedule").click(function (e) {
-
-    Exam.addNewExamSchedule();
-
-    e.preventDefault();
+$('#select_exam').on('change', function () {
+    Exam_Result.getExam();
+    Exam_Result.allSchedulesByExam();
 });
 $("#btn_search").click(function (e) {
-
-    Exam.allSchedulesByNic();
-
+    Exam_Result.allSchedulesByNic();
     e.preventDefault();
 });
-$('#select_exam').on('change', function () {
-    Exam.getExam();
-});
 
 
-var Exam = {
+var Exam_Result = {
 
-    addNewExam: function () {
-
-        var e = {};
-        e["id"] = "";
-        if ($('#txt_new_exam').val().length < 2) {
-            noty({text: 'please enter exam date', layout: 'topRight', type: 'error'});
-        } else if ($('#txt_new_time').val().length < 2) {
-            noty({text: 'please enter exam time', layout: 'topRight', type: 'error'});
-        } else if ($('#exam_states').val().length < 2) {
-            noty({text: 'please select exam type', layout: 'topRight', type: 'error'});
-        } else {
-            e["date"] = $('#txt_new_exam').val();
-            e["time"] = $('#txt_new_time').val();
-            e["type"] = $('#exam_states').val();
-
-
-            var d = JSON.stringify(e);
-
-            $.ajax({
-                url: '/exam/request/new/exam',
-                dataType: 'json',
-                contentType: "application/json",
-                type: 'POST',
-                data: d,
-                success: function (data, textStatus, jqXHR) {
-                    $('#txt_new_exam').val("");
-                    $('#txt_new_time').val("");
-                    Exam.allExams();
-                    noty({text: 'Exam saved. Exam date ' + data.date, layout: 'topRight', type: 'success'});
-                },
-                error: function (jqXHR, textStatus, errorThrown) {
-                    noty({text: 'There was an error ' + errorThrown, layout: 'topRight', type: 'error'});
-                    console.log("error" + jqXHR + " - " + errorThrown);
-                    console.log(textStatus);
-                    console.log("R: " + jqXHR.status);
-                    console.log("R: " + jqXHR.responseText);
-
-                },
-                beforeSend: function (xhr) {
-                    noty({text: 'Please wait..', layout: 'topRight', type: 'information'});
-                }
-            });
-        }
-    },
     allExams: function () {
 
         $.ajax({
@@ -141,10 +82,9 @@ var Exam = {
             type: 'POST',
             data: d,
             success: function (data, textStatus, jqXHR) {
-                noty({text: 'Exam details loaded ', layout: 'topRight', type: 'success'});
-                $("#txt_ex_date").val(data.date);
-                $("#txt_time").val(data.time);
-                $('#exam_states').selectpicker('val', data.type);
+                //noty({text: 'Exam details loaded ', layout: 'topRight', type: 'success'});
+                $("#txt_new_time").val(data.time);
+                $('#txt_exam_type').val(data.type);
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 noty({text: 'There was an error ' + errorThrown, layout: 'topRight', type: 'error'});
@@ -198,41 +138,37 @@ var Exam = {
     addNewExamSchedule: function () {
 
         var e = {};
+        e["studentNIC"] = student;
+        e["examID"] = exam;
+        e["state"] = states;
 
-        if ($('#txt_nic').val().length < 10) {
-            noty({text: 'please enter valid nic number', layout: 'topRight', type: 'error'});
-        } else {
-            e["studentNIC"] = $("#txt_nic").val();
-            e["examID"] = $("#select_exam").val();
-            e["state"] = $("#select_states").val();
+        var d = JSON.stringify(e);
 
-            var d = JSON.stringify(e);
+        $.ajax({
+            url: '/exam/save/new/schedule',
+            dataType: 'json',
+            contentType: "application/json",
+            type: 'POST',
+            data: d,
+            success: function (data, textStatus, jqXHR) {
+                // $('#txt_new_exam').val("");
+                // $('#txt_new_time').val("");
+                //Exam_Result.allSchedules();
+                noty({text: 'successfully updated.', layout: 'topRight', type: 'success'});
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                noty({text: 'There was an error \n\ failed!' + errorThrown, layout: 'topRight', type: 'error'});
+                // console.log("error" + jqXHR + " - " + errorThrown);
+                // console.log(textStatus);
+                // console.log("R: " + jqXHR.status);
+                // console.log("R: " + jqXHR.responseText);
 
-            $.ajax({
-                url: '/exam/save/new/schedule',
-                dataType: 'json',
-                contentType: "application/json",
-                type: 'POST',
-                data: d,
-                success: function (data, textStatus, jqXHR) {
-                    // $('#txt_new_exam').val("");
-                    // $('#txt_new_time').val("");
-                    Exam.allSchedules();
-                    noty({text: 'Schedule added for ' + $("#txt_name").val(), layout: 'topRight', type: 'success'});
-                },
-                error: function (jqXHR, textStatus, errorThrown) {
-                    noty({text: 'There was an error ' + errorThrown, layout: 'topRight', type: 'error'});
-                    // console.log("error" + jqXHR + " - " + errorThrown);
-                    // console.log(textStatus);
-                    // console.log("R: " + jqXHR.status);
-                    // console.log("R: " + jqXHR.responseText);
+            },
+            beforeSend: function (xhr) {
+                // noty({text: 'Please wait..', layout: 'topRight', type: 'information'});
+            }
+        });
 
-                },
-                beforeSend: function (xhr) {
-                    // noty({text: 'Please wait..', layout: 'topRight', type: 'information'});
-                }
-            });
-        }
     },
     allSchedules: function () {
         $('#tbl_schedule tbody tr td').remove();
@@ -257,6 +193,7 @@ var Exam = {
                                     <td>' + data[i].exam_date + '</td>\n\
                                     <td>' + data[i].exam_type + '</td>\n\
                                     <td>' + data[i].result + '</td>\n\
+                                    <td><button type="button" class="btn btn-success pass">pass</button><button type="button" class="btn btn-primary failed">failed</button></td>\n\
                                     </tr>');
 
                     }
@@ -296,6 +233,47 @@ var Exam = {
                                     <td>' + data[i].exam_date + '</td>\n\
                                     <td>' + data[i].exam_type + '</td>\n\
                                     <td>' + data[i].result + '</td>\n\
+                                    <td><button type="button" class="btn btn-success pass">pass</button><button type="button" class="btn btn-primary failed">failed</button></td>\n\
+                                    </tr>');
+
+                    }
+                }
+
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(jqXHR + "---" + textStatus + "---" + errorThrown);
+            },
+            beforeSend: function (xhr) {
+
+            }
+        });
+
+    },
+    allSchedulesByExam: function () {
+        $('#tbl_schedule tbody tr td').remove();
+        var id = $("#select_exam").val();
+        $.ajax({
+            url: "/exam/all/exam/schedule/list/by/exam",
+            dataType: 'json',
+            contentType: "application/json",
+            type: 'POST',
+            data: id,
+            success: function (data, textStatus, jqXHR) {
+                if (data.length < 1) {
+                    $('#tbl_schedule').append('<tr>\n\
+                               <td colspan=9><p align="center">No Records found\n\
+                               </p></td>\n\
+                               </tr>');
+                } else {
+                    for (var i = 0; i < data.length; i++) {
+                        $('#tbl_schedule').append('<tr>\n\
+                                    <td>' + (i + 1) + '</td>\n\
+                                    <td>' + data[i].student_name + '</td>\n\
+                                    <td>' + data[i].nic + '</td>\n\
+                                    <td>' + data[i].exam_date + '</td>\n\
+                                    <td>' + data[i].exam_type + '</td>\n\
+                                    <td>' + data[i].result + '</td>\n\
+                                    <td><button type="button" class="btn btn-success pass">pass</button><button type="button" class="btn btn-primary failed">failed</button></td>\n\
                                     </tr>');
 
                     }

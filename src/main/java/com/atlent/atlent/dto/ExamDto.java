@@ -7,15 +7,17 @@ public class ExamDto implements Serializable {
 
     private int id;
     private String date;
-    private String states;
+    private String time;
+    private String type;
 
     public ExamDto() {
     }
 
-    public ExamDto(int id, String date, String states) {
+    public ExamDto(int id, String date, String time, String type) {
         this.id = id;
         this.date = date;
-        this.states = states;
+        this.time = time;
+        this.type = type;
     }
 
     public static long getSerialVersionUID() {
@@ -38,12 +40,20 @@ public class ExamDto implements Serializable {
         this.date = date;
     }
 
-    public String getStates() {
-        return states;
+    public String getTime() {
+        return time;
     }
 
-    public void setStates(String states) {
-        this.states = states;
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     @Override
@@ -51,7 +61,8 @@ public class ExamDto implements Serializable {
         final StringBuffer sb = new StringBuffer("ExamDto{");
         sb.append("id=").append(id);
         sb.append(", date='").append(date).append('\'');
-        sb.append(", states='").append(states).append('\'');
+        sb.append(", time='").append(time).append('\'');
+        sb.append(", type='").append(type).append('\'');
         sb.append('}');
         return sb.toString();
     }

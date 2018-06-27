@@ -15,11 +15,14 @@ public class Exam implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name = "state")
-    private String states;
+    @Column(name = "time")
+    private String time;
 
     @Column(name = "date")
     private String date;
+
+    @Column(name = "type")
+    private String type;
 
     @OneToMany(mappedBy = "exam", fetch = FetchType.LAZY)
     private List<ExamSchedule> examSchedules = new ArrayList<>();
@@ -28,10 +31,10 @@ public class Exam implements Serializable {
     public Exam() {
     }
 
-    public Exam(int id, String states, String date, List<ExamSchedule> examSchedules) {
-        this.id = id;
-        this.states = states;
+    public Exam(String time, String date, String type, List<ExamSchedule> examSchedules) {
+        this.time = time;
         this.date = date;
+        this.type = type;
         this.examSchedules = examSchedules;
     }
 
@@ -47,12 +50,12 @@ public class Exam implements Serializable {
         this.id = id;
     }
 
-    public String getStates() {
-        return states;
+    public String getTime() {
+        return time;
     }
 
-    public void setStates(String states) {
-        this.states = states;
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public String getDate() {
@@ -71,12 +74,21 @@ public class Exam implements Serializable {
         this.examSchedules = examSchedules;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("Exam{");
         sb.append("id=").append(id);
-        sb.append(", states='").append(states).append('\'');
+        sb.append(", time='").append(time).append('\'');
         sb.append(", date='").append(date).append('\'');
+        sb.append(", type='").append(type).append('\'');
         sb.append(", examSchedules=").append(examSchedules);
         sb.append('}');
         return sb.toString();

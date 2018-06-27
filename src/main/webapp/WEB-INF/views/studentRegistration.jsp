@@ -100,8 +100,9 @@
                             <div id="step-1">
                                 <h4>Student Personal Information</h4>
                                 <p>Please fill out all the fields as you can.
-                                you can edit or update this information later.</p>
-                                <a href="/all/student"> <span class="fa fa-tasks"> </span> <span class="xn-text"></span> All Students</a>
+                                    you can edit or update this information later.</p>
+                                <a href="/all/student"> <span class="fa fa-tasks"> </span> <span class="xn-text"></span>
+                                    All Students</a>
                                 <!-- START SUCCESS PANEL -->
                                 <div class="panel panel-success">
                                     <div class="panel-heading">
@@ -111,19 +112,21 @@
                                         <form id="validate" role="form" class="form-horizontal"
                                               action="javascript:alert('Form #validate submited');">
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label">Name:</label>
-                                                <div class="col-md-6">
-                                                    <input type="text"
-                                                           class="validate[required,maxSize[8]] form-control" id="txt_name"/>
-                                                    <span class="help-block">Required, max size = 8</span>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
                                                 <label class="col-md-3 control-label">NIC:</label>
                                                 <div class="col-md-6    ">
                                                     <input type="text"
-                                                           class="validate[required,custom[integer],min[18],max[120]] form-control" id="txt_nic"/>
+                                                           class="validate[required,min[10],max[10]] form-control"
+                                                           id="txt_nic"/>
                                                     <span class="help-block">Required, 9 Numbers with V or X</span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Name:</label>
+                                                <div class="col-md-6">
+                                                    <input type="text"
+                                                           class="validate[required,maxSize[250]] form-control"
+                                                           id="txt_name"/>
+                                                    <span class="help-block">Required, max size = 8</span>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -161,7 +164,8 @@
                                                 <label class="col-md-3 control-label">Date of birth:</label>
                                                 <div class="col-md-6">
                                                     <input type="text"
-                                                           class="validate[required,custom[date]] form-control" id="txt_dob"/>
+                                                           class="validate[required,custom[date]] form-control"
+                                                           id="txt_dob"/>
                                                     <span class="help-block">Required, date YYYY-MM-DD</span>
                                                 </div>
                                             </div>
@@ -169,7 +173,8 @@
                                                 <label class="col-md-3 control-label">Age:</label>
                                                 <div class="col-md-6    ">
                                                     <input type="text"
-                                                           class="validate[required,custom[integer],min[18],max[120]] form-control" id="txt_age" disabled="disabled"/>
+                                                           class="validate[required,min[18],max[120]] form-control"
+                                                           id="txt_age" disabled="disabled"/>
                                                     <span class="help-block">Required, integer, min value = 18, max = 120</span>
                                                 </div>
                                             </div>
@@ -177,7 +182,8 @@
                                                 <label class="col-md-3 control-label">Mobile NO:</label>
                                                 <div class="col-md-6">
                                                     <input type="text"
-                                                           class="validate[required,creditCard] form-control" id="txt_mobile"/>
+                                                           class="validate[required] form-control"
+                                                           id="txt_mobile"/>
                                                     <span class="help-block">Required, Student Password will sent to this number.</span>
                                                 </div>
                                             </div>
@@ -187,30 +193,8 @@
                                                     <textarea class="form-control" rows="5" id="txt_address"></textarea>
                                                 </div>
                                             </div>
-
-                                            <%--<div class="form-group">--%>
-                                            <%--<div class="col-md-12">--%>
-                                            <%--<label class="checkbox">--%>
-                                            <%--<label>--%>
-                                            <%--<input type="checkbox" class="validate[required]"--%>
-                                            <%--name="terms" value="1"/> Yes, I accept your terms and--%>
-                                            <%--conditions.--%>
-                                            <%--</label>--%>
-                                            <%--</label>--%>
-                                            <%--</div>--%>
-                                            <%--</div>--%>
-                                            <%--<div class="btn-group pull-right">--%>
-                                            <%--<button class="btn btn-primary" type="button"--%>
-                                            <%--onClick="$('#validate').validationEngine('hide');">Hide prompts--%>
-                                            <%--</button>--%>
-                                            <%--<button class="btn btn-primary" type="submit">Submit</button>--%>
-                                            <%--</div>--%>
                                         </form>
                                     </div>
-                                    <%--<div class="panel-footer">--%>
-                                    <%--<button class="btn btn-default">Back</button>--%>
-                                    <%--<button class="btn btn-primary pull-right">Submit</button>--%>
-                                    <%--</div>--%>
                                 </div>
                                 <!-- END SUCCESS PANEL -->
 
@@ -229,10 +213,7 @@
                                                 <label class="col-md-3 control-label">Select Type</label>
                                                 <div class="col-md-6">
                                                     <select class="form-control select" id="select_license_packages">
-                                                        <option>Only Bike</option>
-                                                        <option>sahallu</option>
-                                                        <option>bara wahana</option>
-                                                        <option>B</option>
+
                                                     </select>
                                                 </div>
                                             </div>
@@ -240,7 +221,9 @@
                                                 <label class="col-md-3 control-label">Price Rs.</label>
                                                 <div class="col-md-6">
                                                     <input type="text"
-                                                           class="validate[required,custom[double]] form-control" id="txt_pack_price" disabled="disabled"/>
+                                                           class="validate[required,custom[double]] form-control"
+                                                           id="txt_pack_price" disabled="disabled"
+                                                           style="color: black"/>
                                                     <span class="help-block">License Type Price</span>
                                                 </div>
                                             </div>
@@ -254,11 +237,10 @@
                                                         <thead>
                                                         <tr>
                                                             <th>#</th>
-                                                            <th>Vehicle Class</th>
+                                                            <th>Vehicle_Class</th>
                                                             <th>Description</th>
                                                             <th>Other_Classes</th>
-                                                            <th>Old Class</th>
-                                                            <th>price</th>
+                                                            <th>Old_Class</th>
                                                         </tr>
                                                         </thead>
                                                         <tbody>
@@ -275,88 +257,81 @@
                                 <%--</div>--%>
                             </div>
                             <div id="step-3">
-                                <h4>Choose Subjects and a Class</h4>
-                                <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et
-                                    magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh
-                                    ultricies vehicula.</p>
+                                <h4>Payments</h4>
+                                <p>License Payments and Registration fees</p>
                                 <form id="validateParent" role="form" class="form-horizontal"
                                       action="javascript:alert('Form #validate submited');">
                                     <div class="form-group">
-                                        <label class="col-md-3 control-label">NIC:</label>
+                                        <label class="col-md-3 control-label">Registration Fee :</label>
                                         <div class="col-md-6    ">
                                             <input type="text"
-                                                   class="validate[required,custom[integer],min[18],max[120]] form-control"/>
-                                            <span class="help-block">Required, 9 Numbers with V or X</span>
+                                                   class="form-control" id="txt_regi_fee"/>
+                                            <span class="help-block">Required, registration fees</span>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-3 control-label">Name:</label>
+                                        <label class="col-md-3 control-label">License Type Price :</label>
                                         <div class="col-md-6">
                                             <input type="text"
-                                                   class="validate[required,maxSize[8]] form-control"/>
-                                            <span class="help-block">Required, max size = 8</span>
+                                                   class="form-control" style="color: black" id="txt_license_type_price"
+                                                   disabled="disabled"/>
+                                            <span class="help-block">--</span>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-3 control-label">Occupation:</label>
+                                        <label class="col-md-3 control-label">Full Payment :</label>
                                         <div class="col-md-6">
                                             <input type="text"
-                                                   class="validate[required,maxSize[500]] form-control"/>
-                                            <span class="help-block">Required, max size = 500</span>
+                                                   class="form-control" style="color: black" id="txt_full_payment"
+                                                   disabled="disabled"/>
+                                            <span class="help-block">--</span>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-3 control-label">Mobile NO:</label>
+                                        <label class="col-md-3 control-label">Paid Amount :</label>
                                         <div class="col-md-6">
                                             <input type="text"
-                                                   class="validate[required,creditCard] form-control"/>
+                                                   class="form-control" id="txt_paid_amount"/>
                                             <span class="help-block">Required</span>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-3 control-label">Address:</label>
+                                        <label class="col-md-3 control-label">Balance Payment :</label>
                                         <div class="col-md-6">
-                                            <textarea class="form-control" rows="5"></textarea>
+                                            <input type="text"
+                                                   class="form-control" disabled="disabled" style="color: black"
+                                                   id="txt_balance_payment"/>
                                         </div>
                                     </div>
-
-                                    <%--<div class="form-group">--%>
-                                    <%--<div class="col-md-12">--%>
-                                    <%--<label class="checkbox">--%>
-                                    <%--<label>--%>
-                                    <%--<input type="checkbox" class="validate[required]"--%>
-                                    <%--name="terms" value="1"/> Yes, I accept your terms and--%>
-                                    <%--conditions.--%>
-                                    <%--</label>--%>
-                                    <%--</label>--%>
-                                    <%--</div>--%>
-                                    <%--</div>--%>
-                                    <%--<div class="btn-group pull-right">--%>
-                                    <%--<button class="btn btn-primary" type="button"--%>
-                                    <%--onClick="$('#validate').validationEngine('hide');">Hide prompts--%>
-                                    <%--</button>--%>
-                                    <%--<button class="btn btn-primary" type="submit">Submit</button>--%>
-                                    <%--</div>--%>
                                 </form>
 
                             </div>
                             <div id="step-4">
                                 <h4>Is Student Have Any Medical Issue?</h4>
                                 <h4> Write it here!</h4>
-                                <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et
-                                    magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh
-                                    ultricies vehicula.</p>
+                                <p>Please request a hard copy of medical report from student.. if any special notice
+                                    about student write it here.</p>
                                 <form id="validateMedic" role="form" class="form-horizontal"
                                       action="javascript:alert('Form #validate submited');">
                                     <div class="form-group">
+                                        <label class="col-md-3 control-label">is collect report?</label>
+                                        <div class="col-md-6">
+                                            <select class="form-control select" id="select_report">
+                                                <option value="1">Yes</option>
+                                                <option value="0">No</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
                                         <label class="col-md-3 control-label">Note:</label>
                                         <div class="col-md-6">
-                                            <textarea class="form-control" rows="5"></textarea>
+                                            <textarea class="form-control" rows="5" id="txt_note"></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-md-3 col-sm-offset-6 col-md-offset-6 col-lg-offset-6">
-                                            <button class="btn btn-primary btn-block" id="btn_submit">Submit All</button>
+                                            <button class="btn btn-primary btn-block" id="btn_submit">Submit All
+                                            </button>
                                         </div>
                                     </div>
                                 </form>
@@ -436,6 +411,11 @@
 <script type="text/javascript" src="/js/actions.js"></script>
 <script type="text/javascript" src="/js/app_js/Student.js"></script>
 <!-- END TEMPLATE -->
+<script type='text/javascript' src='/js/plugins/noty/jquery.noty.js'></script>
+<script type='text/javascript' src='/js/plugins/noty/layouts/topCenter.js'></script>
+<script type='text/javascript' src='/js/plugins/noty/layouts/topLeft.js'></script>
+<script type='text/javascript' src='/js/plugins/noty/layouts/topRight.js'></script>
+<script type='text/javascript' src='/js/plugins/noty/themes/default.js'></script>
 <script type="text/javascript">
     var jvalidate = $("#jvalidate").validate({
         ignore: [],

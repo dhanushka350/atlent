@@ -9,5 +9,6 @@ import java.util.List;
 @Repository
 public interface ExamDao extends JpaRepository<Exam,Integer>{
     Exam getById(int id);
+    Exam getByDate(String s);
 
 }

@@ -20,28 +20,15 @@ public class ExamSchedule implements Serializable {
     @JoinColumn(name = "student")
     private Registration student_reg_id;
 
-    @Column(name = "date")
-    private String date;
-
-    @Column(name = "time")
-    private String time;
-
-    @Column(name = "exam_type")
-    private String exam_type;
-
     @Column(name = "States")
     private String states;
 
     public ExamSchedule() {
     }
 
-    public ExamSchedule(int id, Exam exam, Registration student_reg_id, String date, String time, String exam_type, String states) {
-        this.id = id;
+    public ExamSchedule(Exam exam, Registration student_reg_id, String states) {
         this.exam = exam;
         this.student_reg_id = student_reg_id;
-        this.date = date;
-        this.time = time;
-        this.exam_type = exam_type;
         this.states = states;
     }
 
@@ -73,30 +60,6 @@ public class ExamSchedule implements Serializable {
         this.student_reg_id = student_reg_id;
     }
 
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
-    }
-
-    public String getExam_type() {
-        return exam_type;
-    }
-
-    public void setExam_type(String exam_type) {
-        this.exam_type = exam_type;
-    }
-
     public String getStates() {
         return states;
     }
@@ -111,9 +74,6 @@ public class ExamSchedule implements Serializable {
         sb.append("id=").append(id);
         sb.append(", exam=").append(exam);
         sb.append(", student_reg_id=").append(student_reg_id);
-        sb.append(", date='").append(date).append('\'');
-        sb.append(", time='").append(time).append('\'');
-        sb.append(", exam_type='").append(exam_type).append('\'');
         sb.append(", states='").append(states).append('\'');
         sb.append('}');
         return sb.toString();

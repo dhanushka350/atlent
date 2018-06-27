@@ -52,10 +52,13 @@ public class Student implements Serializable {
             mappedBy = "student")
     private Registration registration;
 
+    @OneToMany(mappedBy = "medStudent", fetch = FetchType.LAZY)
+    private List<Medical> medicals = new ArrayList<>();
+
     public Student() {
     }
 
-    public Student(String nic, String name, String password, String gender, String date_of_birth, String age, int mobile, String address, Registration registration) {
+    public Student(String nic, String name, String password, String gender, String date_of_birth, String age, int mobile, String address, Registration registration, List<Medical> medicals) {
         this.nic = nic;
         this.name = name;
         this.password = password;
@@ -65,10 +68,7 @@ public class Student implements Serializable {
         this.mobile = mobile;
         this.address = address;
         this.registration = registration;
-    }
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
+        this.medicals = medicals;
     }
 
     public String getNic() {
@@ -143,6 +143,14 @@ public class Student implements Serializable {
         this.registration = registration;
     }
 
+    public List<Medical> getMedicals() {
+        return medicals;
+    }
+
+    public void setMedicals(List<Medical> medicals) {
+        this.medicals = medicals;
+    }
+
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("Student{");
@@ -155,6 +163,7 @@ public class Student implements Serializable {
         sb.append(", mobile=").append(mobile);
         sb.append(", address='").append(address).append('\'');
         sb.append(", registration=").append(registration);
+        sb.append(", medicals=").append(medicals);
         sb.append('}');
         return sb.toString();
     }

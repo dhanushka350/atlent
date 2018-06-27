@@ -9,7 +9,7 @@
 <html lang="en">
 <head>
     <!-- META SECTION -->
-    <title>Exam Schedule</title>
+    <title>Exam Results</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -23,7 +23,7 @@
     <link href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet"/>
     <!-- EOF CSS INCLUDE -->
 </head>
-<body onload="Exam.allExams(); Exam.allSchedules();">
+<body onload="Exam_Result.allExams(); Exam_Result.allSchedules();">
 <!-- START PAGE CONTAINER -->
 <div class="page-container">
 
@@ -43,14 +43,14 @@
         <!-- START BREADCRUMB -->
         <ul class="breadcrumb">
             <li><a href="#">Home</a></li>
-            <li><a href="#">Schedules</a></li>
-            <li class="active"><a href="#">Exam Schedule</a></li>
+            <li><a href="#">Exams</a></li>
+            <li class="active"><a href="#">Exam Results</a></li>
         </ul>
         <!-- END BREADCRUMB -->
 
         <!-- PAGE TITLE -->
         <div class="page-title">
-            <h2><span class="fa fa-calendar"></span> Schedules Information
+            <h2><span class="fa fa-users"></span> Student Result Sheet
                 <small>(All)</small>
             </h2>
         </div>
@@ -82,28 +82,25 @@
                                     </div>
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            <div class="col-md-3">
-                                                <input type="text"
-                                                       class="validate[required,custom[integer],min[18],max[120]] form-control"
-                                                       id="txt_new_exam" placeholder="DATE"/>
-                                                <span class="help-block">Required, format YYYY-MM-DD</span>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <input type="text"
-                                                       class="validate[required,custom[integer],min[18],max[120]] form-control"
-                                                       id="txt_new_time" placeholder="TIME"/>
-                                                <span class="help-block">Required, format hh-mm am/pm</span>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <select class="select" id="exam_states">
-                                                    <option value="Trial">Trial</option>
-                                                    <option value="Exam">Exam</option>
+                                            <div class="col-md-2">
+                                                <select id="select_exam" data-live-search="true">
+
                                                 </select>
                                             </div>
+                                            <div class="col-md-3"></div>
                                             <div class="col-md-3">
-                                                <button type="button" class="btn btn-success mb-control col-md-6"
-                                                        id="btn_save_exam" style="margin-left: 50px;">Add Exam
-                                                </button>
+                                                <input type="text"
+                                                       class="validate[required,custom[integer],min[18],max[120]] form-control"
+                                                       id="txt_new_time" placeholder="TIME"
+                                                       style="color: black;text-align: center;font-weight: bold"
+                                                       disabled="disabled"/>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="text"
+                                                       class="validate[required,custom[integer],min[18],max[120]] form-control"
+                                                       id="txt_exam_type" placeholder="TYPE"
+                                                       style="color: black;text-align: center;font-weight: bold"
+                                                       disabled="disabled"/>
                                             </div>
                                         </div>
                                     </div>
@@ -115,89 +112,6 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-md-12">
-                    <!-- schedule table -->
-                    <div class="panel-body">
-                        <form id="validate" role="form" class="form-horizontal"
-                              action="javascript:alert('Form #validate submited');">
-                            <div class="form-group">
-                                <label class="col-md-3 control-label">Exam Date :</label>
-                                <div class="col-md-3">
-                                    <select id="select_exam" data-live-search="true">
-
-                                    </select>
-                                </div>
-                                <label class="col-md-3 control-label">NIC:</label>
-                                <div class="col-md-3">
-                                    <input type="text"
-                                           class="validate[required,custom[integer],min[18],max[120]] form-control"
-                                           id="txt_nic" style="color: black;text-align: center;font-weight: bold"/>
-                                    <span class="help-block">Required, 9 Numbers with V or X</span>
-                                </div>
-                            </div>
-                        </form>
-                        <br>
-                        <form role="form" class="form-horizontal">
-                            <div class="form-group">
-                                <label class="col-md-3 control-label">Exam Type :</label>
-                                <div class="col-md-3">
-                                    <select class="validate[required] select" id="select_exam_states"
-                                            disabled="disabled">
-                                        <option value="Trial">Trial</option>
-                                        <option value="Exam">Exam</option>
-                                    </select>
-                                    <span class="help-block"></span>
-                                </div>
-                                <label class="col-md-3 control-label">Name:</label>
-                                <div class="col-md-3">
-                                    <input type="text"
-                                           class="validate[required,maxSize[8]] form-control" id="txt_name"
-                                           disabled="disabled"
-                                           style="color: black;text-align: center;font-weight: bold"/>
-                                    <span class="help-block" id="nic_states">--</span>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-3 control-label">States :</label>
-                                <div class="col-md-3">
-                                    <select class="validate[required] select" id="select_states">
-                                        <option value="Pass">Pass</option>
-                                        <option value="Failed">Failed</option>
-                                        <option value="Result_Pending">Result Pending</option>
-                                    </select>
-                                    <span class="help-block"></span>
-                                </div>
-                                <label class="col-md-3 control-label">Date:</label>
-                                <div class="col-md-3">
-                                    <input type="text"
-                                           class="validate[required,custom[integer],min[18],max[120]] form-control"
-                                           id="txt_ex_date" disabled="disabled"
-                                           style="color: black;text-align: center;font-weight: bold"/>
-                                    <span class="help-block">Exam will held on this day </span>
-                                </div>
-
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-6"></div>
-                                <label class="col-md-3 control-label">Time:</label>
-                                <div class="col-md-3    ">
-                                    <input type="text"
-                                           class="validate[required,custom[integer],min[18],max[120]] form-control"
-                                           id="txt_time" disabled="disabled"
-                                           style="color: black;text-align: center;font-weight: bold"/>
-                                    <span class="help-block">Format HH-MM-MM</span>
-                                    <button type="button" class="btn btn-success mb-control col-md-6 col-md-offset-6"
-                                            id="btn_save_exam_schedule">Add Schedule
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <!-- END schedule table -->
-                </div>
-
-            </div>
             <!-- END PAGE CONTENT WRAPPER -->
             <div class="row">
                 <!-- START DATATABLE EXPORT -->
@@ -262,6 +176,7 @@
                                 <th>Exam Date</th>
                                 <th>Exam Type</th>
                                 <th>Result</th>
+                                <th>Update_Result</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -354,7 +269,7 @@
 </script>
 <script type="text/javascript" src="/js/plugins.js"></script>
 <script type="text/javascript" src="/js/actions.js"></script>
-<script type="text/javascript" src="/js/app_js/Exam.js"></script>
+<script type="text/javascript" src="/js/app_js/ExamResult.js"></script>
 <script type='text/javascript' src='/js/plugins/bootstrap/bootstrap-select.js'></script>
 <!-- END TEMPLATE -->
 </body>

@@ -48,7 +48,7 @@
         <a href="/page/not found"><span class="fa fa-phone"></span> <span class="xn-text">Call Service</span></a>
     </li>
     <li  id="staff" onclick="setActiveClass(this.id)">
-        <a href="/page/not found"><span class="fa fa-shield"></span> <span class="xn-text">Staff Members</span></a>
+        <a href="/staff/members"><span class="fa fa-shield"></span> <span class="xn-text">Staff Members</span></a>
     </li>
     <li  id="tech" onclick="setActiveClass(this.id)">
         <a href="/tech/support"><span class="fa fa-compass"></span> <span class="xn-text">Tech Support</span></a>

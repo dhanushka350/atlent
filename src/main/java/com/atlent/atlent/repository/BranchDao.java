@@ -1,12 +1,12 @@
 package com.atlent.atlent.repository;
 
+import com.atlent.atlent.models.Branch;
 import com.atlent.atlent.models.SystemUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface SystemUserDao extends JpaRepository<SystemUser,Integer> {
+public interface BranchDao extends JpaRepository <Branch,Integer>{
 
-    SystemUser findSystemUserByUserEqualsAndPasswordEquals(String name,String password)throws Exception;
-
+    Branch getByBranchID(int id);
 }

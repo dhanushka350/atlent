@@ -13,6 +13,8 @@ public interface User_Service {
 
     public boolean saveStudent(RegistrationDataTransfer transfer) throws Exception;
 
+    public boolean saveStaff(StaffDto staffDto) throws Exception;
+
     public List<StudentDto> getAllStudentList() throws Exception;
 
     public Registration saveRegistrationDetails(Registration registration) throws Exception;
@@ -23,6 +25,6 @@ public interface User_Service {
 
     public Medical saveMedical(Medical medical) throws Exception;
 
-    public RegistrationDataTransfer getStudentDetailsForRegistration(String nic)throws Exception;
+    public RegistrationDataTransfer getStudentDetailsForRegistration(String nic) throws Exception;
 
 }

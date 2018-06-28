@@ -148,23 +148,6 @@
                                         <button class="btn btn-primary btn-block">Submit</button>
                                     </div>
                                 </div>
-                                <%--<div class="form-group">--%>
-                                <%--<div class="col-md-12">--%>
-                                <%--<label class="checkbox">--%>
-                                <%--<label>--%>
-                                <%--<input type="checkbox" class="validate[required]"--%>
-                                <%--name="terms" value="1"/> Yes, I accept your terms and--%>
-                                <%--conditions.--%>
-                                <%--</label>--%>
-                                <%--</label>--%>
-                                <%--</div>--%>
-                                <%--</div>--%>
-                                <%--<div class="btn-group pull-right">--%>
-                                <%--<button class="btn btn-primary" type="button"--%>
-                                <%--onClick="$('#validate').validationEngine('hide');">Hide prompts--%>
-                                <%--</button>--%>
-                                <%--<button class="btn btn-primary" type="submit">Submit</button>--%>
-                                <%--</div>--%>
                             </form>
                         </div>
                     </div>

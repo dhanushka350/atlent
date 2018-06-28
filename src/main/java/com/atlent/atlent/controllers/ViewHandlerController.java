@@ -59,10 +59,10 @@ public class ViewHandlerController {
         return new ModelAndView("techSupport");
     }
 
-    @RequestMapping(value = {"search/students"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"staff/members"}, method = RequestMethod.GET)
     public ModelAndView searchStudents() {
         System.out.println("working");
-        return new ModelAndView("searchStudents");
+        return new ModelAndView("StaffMembers");
     }
 
     @RequestMapping(value = {"new/teacher/profile"}, method = RequestMethod.GET)

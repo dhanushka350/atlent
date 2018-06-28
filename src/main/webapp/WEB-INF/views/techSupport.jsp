@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <!-- META SECTION -->
-    <title>Page not found!</title>
+    <title>Developers</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -154,7 +154,7 @@
         <ul class="breadcrumb push-down-0">
             <li><a href="/admin_dashboard">Home</a></li>
             <li><a href="/admin_dashboard">Pages</a></li>
-            <li class="active">Error 404</li>
+            <li class="active">Developers</li>
         </ul>
         <!-- END BREADCRUMB -->
 
@@ -173,7 +173,8 @@
                                 </div>
                                 <div class="profile-data">
                                     <div class="profile-data-name">Dhanushka Sandaruwan</div>
-                                    <div class="profile-data-title">Web Developer / UI/UX Designer / Software Engineer</div>
+                                    <div class="profile-data-title">Web Developer / UI/UX Designer / Software Engineer
+                                    </div>
                                 </div>
                                 <div class="profile-controls">
                                     <a href="#" class="profile-control-left"><span class="fa fa-info"></span></a>
@@ -204,11 +205,12 @@
                         <div class="panel panel-default">
                             <div class="panel-body profile">
                                 <div class="profile-image">
-                                    <img src="/assets/images/users/user.jpg" alt="Dmitry Ivaniuk"/>
+                                    <img src="/assets/images/users/user7.jpg" alt="Dmitry Ivaniuk"/>
                                 </div>
                                 <div class="profile-data">
-                                    <div class="profile-data-name">Dmitry Ivaniuk</div>
-                                    <div class="profile-data-title">Web Developer / UI/UX Designer</div>
+                                    <div class="profile-data-name">Sanju Chandimal</div>
+                                    <div class="profile-data-title">Web Developer / UI/UX Designer / Software Engineer
+                                    </div>
                                 </div>
                                 <div class="profile-controls">
                                     <a href="#" class="profile-control-left"><span class="fa fa-info"></span></a>
@@ -234,84 +236,40 @@
                         </div>
                         <!-- END CONTACT ITEM -->
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-6">
                         <!-- CONTACT ITEM -->
-                        <div class="panel panel-default">
-                            <div class="panel-body profile">
-                                <div class="profile-image">
-                                    <img src="/assets/images/users/user2.jpg" alt="John Doe"/>
-                                </div>
-                                <div class="profile-data">
-                                    <div class="profile-data-name">John Doe</div>
-                                    <div class="profile-data-title">Web Developer/Designer</div>
-                                </div>
-                                <div class="profile-controls">
-                                    <a href="#" class="profile-control-left"><span class="fa fa-info"></span></a>
-                                    <a href="#" class="profile-control-right"><span class="fa fa-phone"></span></a>
-                                </div>
-                            </div>
-                            <div class="panel-body">
-                                <div class="contact-info">
-                                    <p>
-                                        <small>Mobile</small>
-                                        <br/>(234) 567-89-12
-                                    </p>
-                                    <p>
-                                        <small>Email</small>
-                                        <br/>john@domain.com
-                                    </p>
-                                    <p>
-                                        <small>Address</small>
-                                        <br/>123 45 Street San Francisco, CA, USA
-                                    </p>
-                                </div>
+                        <br><br><br>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Subject :</label>
+                            <div class="col-md-9">
+                                <input type="text"
+                                       class="validate[required,creditCard] form-control" id="txt_subject"/>
+                                <span class="help-block">Required</span>
                             </div>
                         </div>
-                        <!-- END CONTACT ITEM -->
-                    </div>
-                    <div class="col-md-3">
-                        <!-- CONTACT ITEM -->
-                        <div class="panel panel-default">
-                            <div class="panel-body profile">
-                                <div class="profile-image">
-                                    <img src="/assets/images/users/user3.jpg" alt="Nadia Ali"/>
-                                </div>
-                                <div class="profile-data">
-                                    <div class="profile-data-name">Nadia Ali</div>
-                                    <div class="profile-data-title">Singer-Songwriter</div>
-                                </div>
-                                <div class="profile-controls">
-                                    <a href="#" class="profile-control-left"><span class="fa fa-info"></span></a>
-                                    <a href="#" class="profile-control-right"><span class="fa fa-phone"></span></a>
-                                </div>
-                            </div>
-                            <div class="panel-body">
-                                <div class="contact-info">
-                                    <p>
-                                        <small>Mobile</small>
-                                        <br/>(555) 555-55-55
-                                    </p>
-                                    <p>
-                                        <small>Email</small>
-                                        <br/>nadiaali@domain.com
-                                    </p>
-                                    <p>
-                                        <small>Address</small>
-                                        <br/>123 45 Street San Francisco, CA, USA
-                                    </p>
-                                </div>
+                        <br><br>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Message :</label>
+                            <div class="col-md-9">
+                                <textarea class="form-control" rows="5" id="txt_message"></textarea>
                             </div>
                         </div>
-                        <!-- END CONTACT ITEM -->
+                        <br><br><br>
+                        <div class="form-group" style="margin-top: 10px;">
+                            <div class="col-md-3 col-sm-offset-8 col-md-offset-8 col-lg-offset-8">
+                                <button class="btn btn-primary btn-block" onclick="sentMail(this);">Sent</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
-
         </div>
-        <!-- END PAGE CONTENT WRAPPER -->
+
+
     </div>
-    <!-- END PAGE CONTENT -->
+    <!-- END PAGE CONTENT WRAPPER -->
+</div>
+<!-- END PAGE CONTENT -->
 </div>
 <!-- END PAGE CONTAINER -->
 
@@ -326,7 +284,7 @@
             </div>
             <div class="mb-footer">
                 <div class="pull-right">
-                    <a href="pages-login.html" class="btn btn-success btn-lg">Yes</a>
+                    <a href="/" class="btn btn-success btn-lg">Yes</a>
                     <button class="btn btn-default btn-lg mb-control-close">No</button>
                 </div>
             </div>
@@ -357,8 +315,13 @@
 
 <script type="text/javascript" src="/js/plugins.js"></script>
 <script type="text/javascript" src="/js/actions.js"></script>
+<script type="text/javascript" src="/js/app_js/TechSupport.js"></script>
 <!-- END TEMPLATE -->
-
+<script type='text/javascript' src='/js/plugins/noty/jquery.noty.js'></script>
+<script type='text/javascript' src='/js/plugins/noty/layouts/topCenter.js'></script>
+<script type='text/javascript' src='/js/plugins/noty/layouts/topLeft.js'></script>
+<script type='text/javascript' src='/js/plugins/noty/layouts/topRight.js'></script>
+<script type='text/javascript' src='/js/plugins/noty/themes/default.js'></script>
 <!-- END SCRIPTS -->
 </body>
 </html>

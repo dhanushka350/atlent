@@ -33,6 +33,8 @@ public class User_Service_Impl implements User_Service {
     private MedicalDao medicalDao;
     @Autowired
     private PackageDao packageDao;
+    @Autowired
+    private BranchDao branchDao;
 
 
     @Override
@@ -71,6 +73,27 @@ public class User_Service_Impl implements User_Service {
         boolean b = savePayment(makePaymentEntity(transfer, registrationPackageDetails));
 
         if (b) {
+            res = true;
+        }
+        return res;
+    }
+
+    @Override
+    public boolean saveStaff(StaffDto staffDto) throws Exception {
+
+        boolean res = false;
+
+        SystemUser user = new SystemUser();
+
+        user.setPassword(staffDto.getPass());
+        user.setNic(staffDto.getNic());
+        user.setUser(staffDto.getName());
+        Branch byBranchID = branchDao.getByBranchID(Integer.parseInt(staffDto.getBranch()));
+        user.setBranch(byBranchID);
+        user.setMobile(staffDto.getMobile());
+        user.setAddress(staffDto.getAddress());
+        SystemUser save = dao.save(user);
+        if (save != null){
             res = true;
         }
         return res;

@@ -20,8 +20,9 @@
     <!-- CSS INCLUDE -->
     <link rel="stylesheet" type="text/css" id="theme" href="/css/theme-default.css"/>
     <!-- EOF CSS INCLUDE -->
+
 </head>
-<body>
+<body onload="Staff.allBranches();Staff.getAllMembers();">
 <!-- START PAGE CONTAINER -->
 <div class="page-container">
 
@@ -105,12 +106,9 @@
                         <label class="col-md-3 control-label">Branch</label>
                         <div class="col-md-6">
                             <select class="form-control select" id="select_branch">
-                                <option value="1">MATARA</option>
-                                <option>GAllE</option>
-                                <option>AKURASSA</option>
-                                <option>DIKWELLA</option>
+
                             </select>
-                            <span class="help-block">Automatically Matched By The System</span>
+                            <span class="help-block">Select Working branch</span>
                         </div>
                     </div>
                     <div class="form-group">
@@ -118,7 +116,7 @@
                         <div class="col-md-6">
                             <input type="text" id="txt_name"
                                    class="validate[required,maxSize[8]] form-control"/>
-                            <span class="help-block">Required, max size = 8</span>
+                            <span class="help-block">Required, max size = 500</span>
                         </div>
                     </div>
                     <div class="form-group">
@@ -126,16 +124,15 @@
                         <div class="col-md-6">
                             <input type="password"
                                    class="validate[required,minSize[5],maxSize[10]] form-control"
-                                   id="password" value="1234qwerty"/>
-                            <span class="help-block">This Will Automatically Generate and Sent To Student. The Student Can Change It Later.</span>
+                                   id="password"/>
+                            <span class="help-block">Be a minimum of eight (8) characters in length.</span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 control-label">Confirm:</label>
                         <div class="col-md-6">
                             <input type="password"
-                                   class="validate[required,equals[password]] form-control"
-                                   value="1234qwerty"/>
+                                   class="validate[required,equals[password]] form-control" id="confirm_pass"/>
                             <span class="help-block">Automatically Matched By The System</span>
                         </div>
                     </div>
@@ -145,7 +142,7 @@
                             <input type="text"
                                    class="validate[required] form-control"
                                    id="txt_mobile"/>
-                            <span class="help-block">Required, Student Password will sent to this number.</span>
+                            <span class="help-block">Required</span>
                         </div>
                     </div>
                     <div class="form-group">
@@ -161,26 +158,79 @@
                     </div>
                 </form>
             </div>
-
             <div class="row">
-                <div class="col-md-12">
-                    <table id="tbl_schedule" class="table datatable">
-                        <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Name</th>
-                            <th>Nic</th>
-                            <th>Branch</th>
-                            <th>Mobile</th>
-                        </tr>
-                        </thead>
-                        <tbody>
+                <!-- START DATATABLE EXPORT -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Staff Members</h3>
+                        <div class="btn-group pull-right">
+                            <button class="btn btn-danger dropdown-toggle" data-toggle="dropdown"><i
+                                    class="fa fa-bars"></i> Export Data
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#"
+                                       onClick="$('#tbl_members').tableExport({type:'json',escape:'false'});"><img
+                                        src='/img/icons/json.png' width="24"/> JSON</a></li>
+                                <li><a href="#"
+                                       onClick="$('#tbl_members').tableExport({type:'json',escape:'false',ignoreColumn:'[2,3]'});"><img
+                                        src='/img/icons/json.png' width="24"/> JSON (ignoreColumn)</a></li>
+                                <li><a href="#"
+                                       onClick="$('#tbl_members').tableExport({type:'json',escape:'true'});"><img
+                                        src='/img/icons/json.png' width="24"/> JSON (with Escape)</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#"
+                                       onClick="$('#tbl_members').tableExport({type:'xml',escape:'false'});"><img
+                                        src='/img/icons/xml.png' width="24"/> XML</a></li>
+                                <li><a href="#" onClick="$('#tbl_members').tableExport({type:'sql'});"><img
+                                        src='/img/icons/sql.png' width="24"/> SQL</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#"
+                                       onClick="$('#tbl_members').tableExport({type:'csv',escape:'false'});"><img
+                                        src='/img/icons/csv.png' width="24"/> CSV</a></li>
+                                <li><a href="#"
+                                       onClick="$('#tbl_members').tableExport({type:'txt',escape:'false'});"><img
+                                        src='/img/icons/txt.png' width="24"/> TXT</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#"
+                                       onClick="$('#tbl_members').tableExport({type:'excel',escape:'false'});"><img
+                                        src='/img/icons/xls.png' width="24"/> XLS</a></li>
+                                <li><a href="#"
+                                       onClick="$('#tbl_members').tableExport({type:'doc',escape:'false'});"><img
+                                        src='/img/icons/word.png' width="24"/> Word</a></li>
+                                <li><a href="#"
+                                       onClick="$('#tbl_members').tableExport({type:'powerpoint',escape:'false'});"><img
+                                        src='/img/icons/ppt.png' width="24"/> PowerPoint</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#"
+                                       onClick="$('#tbl_members').tableExport({type:'png',escape:'false'});"><img
+                                        src='/img/icons/png.png' width="24"/> PNG</a></li>
+                                <li><a href="#"
+                                       onClick="$('#tbl_members').tableExport({type:'pdf',escape:'false'});"><img
+                                        src='/img/icons/pdf.png' width="24"/> PDF</a></li>
+                            </ul>
+                        </div>
 
-                        </tbody>
-                    </table>
+                    </div>
+                    <div class="panel-body">
+                        <table id="tbl_members" class="table datatable">
+                            <thead>
+                            <tr>
+                                <th style="color: black;font-weight: bold">#</th>
+                                <th style="color: black;font-weight: bold">Name</th>
+                                <th style="color: black;font-weight: bold">Nic</th>
+                                <th style="color: black;font-weight: bold">Branch</th>
+                                <th style="color: black;font-weight: bold">Mobile</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+
+                    </div>
                 </div>
+                <!-- END DATATABLE EXPORT -->
             </div>
-
         </div>
         <!-- END PAGE CONTENT WRAPPER -->
     </div>
@@ -219,6 +269,15 @@
 <script type="text/javascript" src="/js/plugins/jquery/jquery-ui.min.js"></script>
 <script type="text/javascript" src="/js/plugins/bootstrap/bootstrap.min.js"></script>
 <!-- END PLUGINS -->
+<script type='text/javascript' src='/js/plugins/icheck/icheck.min.js'></script>
+<script type="text/javascript" src="/js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
+<script type="text/javascript" src="/js/plugins/datatables/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="/js/plugins/tableexport/tableExport.js"></script>
+<script type="text/javascript" src="/js/plugins/tableexport/jquery.base64.js"></script>
+<script type="text/javascript" src="/js/plugins/tableexport/html2canvas.js"></script>
+<script type="text/javascript" src="/js/plugins/tableexport/jspdf/libs/sprintf.js"></script>
+<script type="text/javascript" src="/js/plugins/tableexport/jspdf/jspdf.js"></script>
+<script type="text/javascript" src="/js/plugins/tableexport/jspdf/libs/base64.js"></script>
 <script type='text/javascript' src='/js/plugins/bootstrap/bootstrap-select.js'></script>
 <!-- START THIS PAGE PLUGINS-->
 <script type='text/javascript' src='/js/plugins/icheck/icheck.min.js'></script>

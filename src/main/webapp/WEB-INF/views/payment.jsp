@@ -22,9 +22,7 @@
     <link rel="stylesheet" type="text/css" id="theme" href="/css/theme-default.css"/>
     <!-- EOF CSS INCLUDE -->
     <style>
-        body {
-            max-height: 1000px;
-        }
+
     </style>
 </head>
 <body>

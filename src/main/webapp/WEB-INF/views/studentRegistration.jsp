@@ -115,7 +115,7 @@
                                                 <label class="col-md-3 control-label">NIC:</label>
                                                 <div class="col-md-6    ">
                                                     <input type="text"
-                                                           class="validate[required,min[10],max[10]] form-control"
+                                                           class=" form-control"
                                                            id="txt_nic"/>
                                                     <span class="help-block">Required, 9 Numbers with V or X</span>
                                                 </div>
@@ -126,7 +126,7 @@
                                                     <input type="text"
                                                            class="validate[required,maxSize[250]] form-control"
                                                            id="txt_name"/>
-                                                    <span class="help-block">Required, max size = 8</span>
+                                                    <span class="help-block">Required, max size = 250</span>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -151,13 +151,22 @@
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Gender:</label>
                                                 <div class="col-md-6">
-                                                    <select class="validate[required] select" id="formGender">
+                                                    <select class="select form-control" id="formGender">
                                                         <option value="">Choose option</option>
                                                         <option value="Male">Male</option>
                                                         <option value="Female">Female</option>
                                                         <option value="Other">Other</option>
                                                     </select>
                                                     <span class="help-block">Required</span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Branch</label>
+                                                <div class="col-md-6">
+                                                    <select class="form-control select" id="select_branch">
+
+                                                    </select>
+                                                    <span class="help-block">Select Working branch</span>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -175,7 +184,7 @@
                                                     <input type="text"
                                                            class="validate[required,min[18],max[120]] form-control"
                                                            id="txt_age" disabled="disabled"/>
-                                                    <span class="help-block">Required, integer, min value = 18, max = 120</span>
+                                                    <span class="help-block">Required</span>
                                                 </div>
                                             </div>
                                             <div class="form-group">

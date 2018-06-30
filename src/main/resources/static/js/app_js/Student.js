@@ -17,6 +17,7 @@
 $(function () {
     LicensePackages.getAllVehicalClasses();
     LicensePackages.getPackages();
+    LicensePackages.allBranches();
     Student.allStudent();
 });
 // call function - calculate student age
@@ -75,8 +76,9 @@ var Student = {
                 $('#txt_age').val(data.s_age);
                 $('#txt_mobile').val(data.s_mobile);
                 $('#txt_address').val(data.s_address);
+                $("#select_branch").selectpicker('val', data.s_branch).selectpicker('render');
 
-                $("#select_license_packages").selectpicker('val', data.p_packageID);
+                $("#select_license_packages").selectpicker('val', data.p_packageID).selectpicker('render');
 
                 $("#txt_regi_fee").val(data.r_fee);
 
@@ -86,7 +88,11 @@ var Student = {
 
                 $("#select_report").selectpicker('val', data.m_isCollected).selectpicker('render');
                 $("#txt_note").val(data.m_description);
-                noty({text: "we found some information's linked with this NIC", layout: 'topRight', type: 'information'});
+                noty({
+                    text: "we found some information's linked with this NIC",
+                    layout: 'topRight',
+                    type: 'information'
+                });
             },
             error: function (jqXHR, textStatus, errorThrown) {
 
@@ -123,10 +129,11 @@ var Student = {
         e["s_age"] = $('#txt_age').val();
         e["s_mobile"] = $('#txt_mobile').val();
         e["s_address"] = $('#txt_address').val();
+        e["s_branch"] = $('#select_branch').val();
 
         e["p_packageID"] = $("#select_license_packages").val();
         e["r_date"] = today;
-        e["fee"] = $("#txt_regi_fee").val();
+        e["r_fee"] = $("#txt_regi_fee").val();
 
         e["p_fullAmount"] = $("#txt_full_payment").val();
         e["p_paidAmount"] = $("#txt_paid_amount").val();
@@ -191,22 +198,20 @@ var Student = {
             contentType: "application/json",
             type: 'GET',
             success: function (data, textStatus, jqXHR) {
-                if (data.nic === null) {
+                if (data[0].nic === null) {
                     $('#txt_student').append('<tr>\n\
-                               <td colspan=9><p align="center">No Records found\n\
+                               <td colspan=9><p align="center">No records found in your database\n\
                                </p></td>\n\
                                </tr>');
                 } else {
                     for (var i = 0; i < data.length; i++) {
                         $('#txt_student').append('<tr>\n\
-                                    <td>' + (i + 1) + '</td>\n\
-                                    <td>' + data[i].name + '</td>\n\
-                                    <td>' + data[i].nic + '</td>\n\
-                                    <td>' + data[i].gender + '</td>\n\
-                                    <td>' + data[i].date_of_birth + '</td>\n\
-                                    <td>' + data[i].age + '</td>\n\
-                                    <td>' + data[i].address + '</td>\n\
-                                    <td>' + data[i].mobile + '</td>\n\
+                                    <td style="font-size: x-small;font-weight: bold">' + (i + 1) + '</td>\n\
+                                    <td style="font-size: x-small;font-weight: bold">' + data[i].name + '</td>\n\
+                                    <td style="font-size: x-small;font-weight: bold">' + data[i].nic + '</td>\n\
+                                    <td style="font-size: x-small;font-weight: bold">' + data[i].branch + '</td>\n\
+                                    <td style="font-size: x-small;font-weight: bold">' + data[i].address + '</td>\n\
+                                    <td style="font-size: x-small;font-weight: bold">' + data[i].mobile + '</td>\n\
                                     <td><a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Details </a></td>\n\
                                     </tr>');
 
@@ -254,11 +259,11 @@ var LicensePackages = {
                         .val('0');
                     for (var i = 0; i < data.length; i++) {
                         $('#tbl_license_packages').append('<tr>\n\
-                                    <td>' + (i + 1) + '</td>\n\
-                                    <td>' + data[i].vehicle_class + '</td>\n\
-                                    <td>' + data[i].description + '</td>\n\
-                                    <td>' + data[i].otherClasses + '</td>\n\
-                                    <td>' + data[i].oldClass + '</td>\n\
+                                    <td style="font-size: x-small;font-weight: bold">' + (i + 1) + '</td>\n\
+                                    <td style="font-size: x-small;font-weight: bold">' + data[i].vehicle_class + '</td>\n\
+                                    <td style="font-size: x-small;font-weight: bold">' + data[i].description + '</td>\n\
+                                    <td style="font-size: x-small;font-weight: bold">' + data[i].otherClasses + '</td>\n\
+                                    <td style="font-size: x-small;font-weight: bold">' + data[i].oldClass + '</td>\n\
                                     </tr>');
 
                     }
@@ -272,6 +277,40 @@ var LicensePackages = {
 
             }
         });
+    },
+    allBranches: function () {
+        $('#txt_student tbody tr td').remove();
+
+        $.ajax({
+            url: "/control/branches/all/branch/list",
+            dataType: 'json',
+            contentType: "application/json",
+            type: 'GET',
+            success: function (data, textStatus, jqXHR) {
+                $('#select_branch')
+                    .find('option')
+                    .remove()
+                    .end()
+                    .append('<option>Select Branch</option>')
+                    .val('0');
+
+                for (var i = 0; i < data.length; i++) {
+                    $('#select_branch').append($('<option>', {
+                        value: data[i].id,
+                        text: data[i].name
+                    }));
+                }
+                $("#select_branch").selectpicker("refresh");
+
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+
+            },
+            beforeSend: function (xhr) {
+
+            }
+        });
+
     },
     getPackages: function () {
         $.ajax({
@@ -338,11 +377,11 @@ var LicensePackages = {
 
         for (var i = 0; i < data.length; i++) {
             $('#tbl_license_packages').append('<tr>\n\
-                                    <td>' + (i + 1) + '</td>\n\
-                                    <td>' + data[i].vehicle_class + '</td>\n\
-                                    <td>' + data[i].description + '</td>\n\
-                                    <td>' + data[i].otherClasses + '</td>\n\
-                                    <td>' + data[i].oldClass + '</td>\n\
+                                    <td style="font-size: x-small;font-weight: bold">' + (i + 1) + '</td>\n\
+                                    <td style="font-size: x-small;font-weight: bold">' + data[i].vehicle_class + '</td>\n\
+                                    <td style="font-size: x-small;font-weight: bold">' + data[i].description + '</td>\n\
+                                    <td style="font-size: x-small;font-weight: bold">' + data[i].otherClasses + '</td>\n\
+                                    <td style="font-size: x-small;font-weight: bold">' + data[i].oldClass + '</td>\n\
                                     </tr>');
 
         }

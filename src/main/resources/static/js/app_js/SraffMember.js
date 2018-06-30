@@ -40,8 +40,6 @@ var Staff = {
     },
 
     addNewStaff: function () {
-        alert("lkjhngbg");
-
         var e = {};
         e["nic"] = $('#txt_nic').val();
         e["branch"] = $('#select_branch').val();
@@ -80,7 +78,81 @@ var Staff = {
             }
         });
 
-    }
+    },
+
+    allBranches: function () {
+        $('#txt_student tbody tr td').remove();
+
+        $.ajax({
+            url: "/control/branches/all/branch/list",
+            dataType: 'json',
+            contentType: "application/json",
+            type: 'GET',
+            success: function (data, textStatus, jqXHR) {
+                $('#select_branch')
+                    .find('option')
+                    .remove()
+                    .end()
+                    .append('<option>Select Branch</option>')
+                    .val('0');
+
+                for (var i = 0; i < data.length; i++) {
+                    $('#select_branch').append($('<option>', {
+                        value: data[i].id,
+                        text: data[i].name
+                    }));
+                }
+                $("#select_branch").selectpicker("refresh");
+
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+
+            },
+            beforeSend: function (xhr) {
+
+            }
+        });
+
+    },
+
+    getAllMembers: function () {
+
+        $('#tbl_members tbody tr td').remove();
+
+        $.ajax({
+            url: "/Staff/all/members/list",
+            dataType: 'json',
+            contentType: "application/json",
+            type: 'GET',
+            success: function (data, textStatus, jqXHR) {
+
+                if (data[0].nic === null) {
+                    $('#tbl_members').append('<tr>\n\
+                               <td colspan=9><p align="center">Members not found in database\n\
+                               </p></td>\n\
+                               </tr>');
+                } else {
+                    for (var i = 0; i < data.length; i++) {
+                        $('#tbl_members').append('<tr>\n\
+                                    <td style="font-size: x-small;font-weight: bold">' + (i + 1) + '</td>\n\
+                                    <td style="font-size: x-small;font-weight: bold">' + data[i].name + '</td>\n\
+                                    <td style="font-size: x-small;font-weight: bold">' + data[i].nic + '</td>\n\
+                                    <td style="font-size: x-small;font-weight: bold">' + data[i].branch + '</td>\n\
+                                    <td style="font-size: x-small;font-weight: bold">' + data[i].mobile + '</td>\n\
+                                    </tr>');
+
+                    }
+                }
+
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+
+            },
+            beforeSend: function (xhr) {
+
+            }
+        });
+    },
 }
 
 

@@ -21,12 +21,24 @@ public class Branch implements Serializable{
     @OneToMany(mappedBy = "branch", fetch = FetchType.LAZY)
     private List<SystemUser> userList = new ArrayList<>();
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "regBranch", fetch = FetchType.LAZY)
+    private List<Registration> membersList = new ArrayList<>();
+
     public Branch() {
     }
 
-    public Branch(String branch, List<SystemUser> userList) {
+    public Branch(String branch, List<SystemUser> userList, List<Registration> membersList) {
         this.branch = branch;
         this.userList = userList;
+        this.membersList = membersList;
+    }
+
+    public List<Registration> getMembersList() {
+        return membersList;
+    }
+
+    public void setMembersList(List<Registration> membersList) {
+        this.membersList = membersList;
     }
 
     public static long getSerialVersionUID() {
@@ -63,6 +75,7 @@ public class Branch implements Serializable{
         sb.append("branchID=").append(branchID);
         sb.append(", branch='").append(branch).append('\'');
         sb.append(", userList=").append(userList);
+        sb.append(", membersList=").append(membersList);
         sb.append('}');
         return sb.toString();
     }

@@ -10,6 +10,7 @@ import java.io.Serializable;
 @Table(name = "t_user")
 @XmlRootElement
 public class SystemUser implements Serializable {
+    private static final long serialVersionUID = 620346551529489070L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "iduser")

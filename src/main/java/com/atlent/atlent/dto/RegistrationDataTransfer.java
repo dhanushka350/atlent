@@ -13,7 +13,7 @@ public class RegistrationDataTransfer implements Serializable {
     private String s_age;
     private String s_mobile;
     private String s_address;
-
+    private String s_branch;
     private String p_packageID;
 
     private String r_date;
@@ -29,7 +29,7 @@ public class RegistrationDataTransfer implements Serializable {
     public RegistrationDataTransfer() {
     }
 
-    public RegistrationDataTransfer(String s_nic, String s_name, String s_password, String s_gender, String s_date_of_birth, String s_age, String s_mobile, String s_address, String p_packageID, String r_date, String r_fee, String p_fullAmount, String p_paidAmount, String p_balancePayment, String m_isCollected, String m_description) {
+    public RegistrationDataTransfer(String s_nic, String s_name, String s_password, String s_gender, String s_date_of_birth, String s_age, String s_mobile, String s_address, String s_branch, String p_packageID, String r_date, String r_fee, String p_fullAmount, String p_paidAmount, String p_balancePayment, String m_isCollected, String m_description) {
         this.s_nic = s_nic;
         this.s_name = s_name;
         this.s_password = s_password;
@@ -38,6 +38,7 @@ public class RegistrationDataTransfer implements Serializable {
         this.s_age = s_age;
         this.s_mobile = s_mobile;
         this.s_address = s_address;
+        this.s_branch = s_branch;
         this.p_packageID = p_packageID;
         this.r_date = r_date;
         this.r_fee = r_fee;
@@ -46,6 +47,14 @@ public class RegistrationDataTransfer implements Serializable {
         this.p_balancePayment = p_balancePayment;
         this.m_isCollected = m_isCollected;
         this.m_description = m_description;
+    }
+
+    public String getS_branch() {
+        return s_branch;
+    }
+
+    public void setS_branch(String s_branch) {
+        this.s_branch = s_branch;
     }
 
     public static long getSerialVersionUID() {

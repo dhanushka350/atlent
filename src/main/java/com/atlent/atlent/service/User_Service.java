@@ -27,4 +27,6 @@ public interface User_Service {
 
     public RegistrationDataTransfer getStudentDetailsForRegistration(String nic) throws Exception;
 
+    public List<StaffDto> getAllStaffMembers() throws Exception;
+
 }

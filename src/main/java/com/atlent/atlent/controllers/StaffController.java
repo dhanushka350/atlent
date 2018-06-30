@@ -2,13 +2,14 @@ package com.atlent.atlent.controllers;
 
 import com.atlent.atlent.dto.RegistrationDataTransfer;
 import com.atlent.atlent.dto.StaffDto;
+import com.atlent.atlent.dto.StudentDto;
 import com.atlent.atlent.service.User_Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/Staff")
@@ -29,6 +30,18 @@ public class StaffController {
         }
 
         return res;
+    }
+
+    @RequestMapping(value = {"all/members/list"}, method = RequestMethod.GET, consumes = "application/json", produces = "application/json")
+    @ResponseBody
+    public List<StaffDto> getAllStaffMembers() {
+        List<StaffDto> list = new ArrayList<>();
+        try {
+            list = userService.getAllStaffMembers();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 
 

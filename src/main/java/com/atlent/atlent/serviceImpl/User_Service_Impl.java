@@ -52,7 +52,7 @@ public class User_Service_Impl implements User_Service {
     @Transactional
     public boolean saveStudent(RegistrationDataTransfer transfer) throws Exception {
         boolean res = false;
-
+        System.out.println(transfer.getR_fee()+"4444444444444444444444444444444444444444444444444");
         Student student = studentDao.getByNic(transfer.getS_nic());
         if (student == null) {
             student = new Student();
@@ -93,7 +93,7 @@ public class User_Service_Impl implements User_Service {
         user.setMobile(staffDto.getMobile());
         user.setAddress(staffDto.getAddress());
         SystemUser save = dao.save(user);
-        if (save != null){
+        if (save != null) {
             res = true;
         }
         return res;
@@ -136,6 +136,7 @@ public class User_Service_Impl implements User_Service {
             registration = new Registration();
             registration.setDate(transfer.getR_date());
             registration.setFee(transfer.getR_fee());
+            registration.setRegBranch(branchDao.getByBranchID(Integer.parseInt(transfer.getS_branch())));
             registration.setStudent(student);
         }
         return registration;
@@ -154,6 +155,7 @@ public class User_Service_Impl implements User_Service {
             dto.setGender(student.getGender());
             dto.setMobile(student.getMobile());
             dto.setName(student.getName());
+            dto.setBranch(student.getRegistration().getRegBranch().getBranch());
             list.add(dto);
         }
         ;
@@ -200,12 +202,29 @@ public class User_Service_Impl implements User_Service {
             transfer.setS_nic(byNic.getNic());
             transfer.setS_password(byNic.getPassword());
             transfer.setS_mobile(byNic.getMobile() + "");
+            transfer.setS_branch(byNic.getRegistration().getRegBranch().getBranch());
             transfer = setMedicalData(transfer, byNic);
             transfer = setRegistrationData(transfer, byNic);
-            System.out.println(transfer.getR_fee() + "==========================");
 
         }
         return transfer;
+    }
+
+    @Override
+    public List<StaffDto> getAllStaffMembers() throws Exception {
+        List<StaffDto> list = new ArrayList<>();
+        StaffDto staffDto = null;
+        for (SystemUser user : dao.findAll()) {
+            staffDto = new StaffDto();
+            staffDto.setAddress(user.getAddress());
+            staffDto.setBranch(user.getBranch().getBranch());
+            staffDto.setMobile(user.getMobile());
+            staffDto.setName(user.getUser());
+            staffDto.setNic(user.getNic());
+            list.add(staffDto);
+        }
+        ;
+        return list;
     }
 
     private RegistrationDataTransfer setRegistrationData(RegistrationDataTransfer transfer, Student byNic) {

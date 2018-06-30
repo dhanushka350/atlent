@@ -11,11 +11,11 @@
 <head>
     <!-- META SECTION -->
     <title>Login</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
     <!-- END META SECTION -->
 
     <!-- CSS INCLUDE -->
@@ -54,13 +54,17 @@
                 <div class="login-or">OR</div>
                 <div class="form-group">
                     <div class="col-md-4">
-                        <button class="btn btn-info btn-block btn-twitter"><span class="fa fa-twitter"></span> Twitter</button>
+                        <button class="btn btn-info btn-block btn-twitter"><span class="fa fa-twitter"></span> Twitter
+                        </button>
                     </div>
                     <div class="col-md-4">
-                        <button class="btn btn-info btn-block btn-facebook"><span class="fa fa-facebook"></span> Facebook</button>
+                        <button class="btn btn-info btn-block btn-facebook"><span class="fa fa-facebook"></span>
+                            Facebook
+                        </button>
                     </div>
                     <div class="col-md-4">
-                        <button class="btn btn-info btn-block btn-google"><span class="fa fa-google-plus"></span> Google</button>
+                        <button class="btn btn-info btn-block btn-google"><span class="fa fa-google-plus"></span> Google
+                        </button>
                     </div>
                 </div>
                 <div class="login-subtitle">
@@ -84,6 +88,11 @@
 <script src="js/plugins/jquery/jquery.min.js"></script>
 <script src="js/app_js/Login.js"></script>
 <script src="session/jquery.session.js"></script>
+<script type='text/javascript' src='/js/plugins/noty/jquery.noty.js'></script>
+<script type='text/javascript' src='/js/plugins/noty/layouts/topCenter.js'></script>
+<script type='text/javascript' src='/js/plugins/noty/layouts/topLeft.js'></script>
+<script type='text/javascript' src='/js/plugins/noty/layouts/topRight.js'></script>
+<script type='text/javascript' src='/js/plugins/noty/themes/default.js'></script>
 </body>
 </html>
 

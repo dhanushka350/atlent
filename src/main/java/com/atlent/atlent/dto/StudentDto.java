@@ -17,6 +17,8 @@ public class StudentDto implements Serializable{
 
     private String gender;
 
+    private String branch;
+
     private String date_of_birth;
 
     private String age;
@@ -28,11 +30,12 @@ public class StudentDto implements Serializable{
     public StudentDto() {
     }
 
-    public StudentDto(String nic, String name, String password, String gender, String date_of_birth, String age, int mobile, String address) {
+    public StudentDto(String nic, String name, String password, String gender, String branch, String date_of_birth, String age, int mobile, String address) {
         this.nic = nic;
         this.name = name;
         this.password = password;
         this.gender = gender;
+        this.branch = branch;
         this.date_of_birth = date_of_birth;
         this.age = age;
         this.mobile = mobile;
@@ -103,13 +106,26 @@ public class StudentDto implements Serializable{
         this.address = address;
     }
 
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public String getBranch() {
+        return branch;
+    }
+
+    public void setBranch(String branch) {
+        this.branch = branch;
+    }
+
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("StudentDto{");
-        sb.append("nic=").append(nic);
+        sb.append("nic='").append(nic).append('\'');
         sb.append(", name='").append(name).append('\'');
         sb.append(", password='").append(password).append('\'');
         sb.append(", gender='").append(gender).append('\'');
+        sb.append(", branch='").append(branch).append('\'');
         sb.append(", date_of_birth='").append(date_of_birth).append('\'');
         sb.append(", age='").append(age).append('\'');
         sb.append(", mobile=").append(mobile);

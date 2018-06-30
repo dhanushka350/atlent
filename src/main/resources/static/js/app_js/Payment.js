@@ -112,11 +112,11 @@ var payment = {
                         for (var i = 0; i < data.length; i++) {
 
                             $('#tbl_payment_history').append('<tr>\n\
-                                    <td>' + (i + 1) + '</td>\n\
-                                    <td>' + data[i].date + '</td>\n\
-                                    <td>' + data[i].fullAmount + '</td>\n\
-                                    <td>' + data[i].paidAmount + '</td>\n\
-                                    <td>' + data[i].balancePayment + '</td>\n\
+                                    <td style="font-size: x-small;font-weight: bold">' + (i + 1) + '</td>\n\
+                                    <td style="font-size: x-small;font-weight: bold">' + data[i].date + '</td>\n\
+                                    <td style="font-size: x-small;font-weight: bold">' + data[i].fullAmount + '</td>\n\
+                                    <td style="font-size: x-small;font-weight: bold">' + data[i].paidAmount + '</td>\n\
+                                    <td style="font-size: x-small;font-weight: bold">' + data[i].balancePayment + '</td>\n\
                                     </tr>');
 
                             var paid = parseInt(data[i].paidAmount);

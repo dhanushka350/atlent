@@ -19,6 +19,10 @@ public class Registration implements Serializable {
     @JoinColumn(name = "client_id", nullable = false)
     private Student student;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "stbranch", nullable = false)
+    private Branch regBranch;
+
     @Column(name = "date")
     private String date;
 
@@ -34,12 +38,26 @@ public class Registration implements Serializable {
     public Registration() {
     }
 
-    public Registration(Student student, String date, String fee, List<ExamSchedule> examSchedules, List<RegistrationPackageDetails> packageDetails) {
+
+    public Registration(Student student, Branch regBranch, String date, String fee, List<ExamSchedule> examSchedules, List<RegistrationPackageDetails> packageDetails) {
         this.student = student;
+        this.regBranch = regBranch;
         this.date = date;
         this.fee = fee;
         this.examSchedules = examSchedules;
         this.packageDetails = packageDetails;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public Branch getRegBranch() {
+        return regBranch;
+    }
+
+    public void setRegBranch(Branch regBranch) {
+        this.regBranch = regBranch;
     }
 
     public int getId() {
@@ -95,6 +113,7 @@ public class Registration implements Serializable {
         final StringBuffer sb = new StringBuffer("Registration{");
         sb.append("id=").append(id);
         sb.append(", student=").append(student);
+        sb.append(", regBranch=").append(regBranch);
         sb.append(", date='").append(date).append('\'');
         sb.append(", fee='").append(fee).append('\'');
         sb.append(", examSchedules=").append(examSchedules);

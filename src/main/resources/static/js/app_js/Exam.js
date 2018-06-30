@@ -251,12 +251,12 @@ var Exam = {
                 } else {
                     for (var i = 0; i < data.length; i++) {
                         $('#tbl_schedule').append('<tr>\n\
-                                    <td>' + (i + 1) + '</td>\n\
-                                    <td>' + data[i].student_name + '</td>\n\
-                                    <td>' + data[i].nic + '</td>\n\
-                                    <td>' + data[i].exam_date + '</td>\n\
-                                    <td>' + data[i].exam_type + '</td>\n\
-                                    <td>' + data[i].result + '</td>\n\
+                                    <td style="font-size: x-small;font-weight: bold">' + (i + 1) + '</td>\n\
+                                    <td style="font-size: x-small;font-weight: bold">' + data[i].student_name + '</td>\n\
+                                    <td style="font-size: x-small;font-weight: bold">' + data[i].nic + '</td>\n\
+                                    <td style="font-size: x-small;font-weight: bold">' + data[i].exam_date + '</td>\n\
+                                    <td style="font-size: x-small;font-weight: bold">' + data[i].exam_type + '</td>\n\
+                                    <td style="font-size: x-small;font-weight: bold">' + data[i].result + '</td>\n\
                                     </tr>');
 
                     }
@@ -290,12 +290,12 @@ var Exam = {
                 } else {
                     for (var i = 0; i < data.length; i++) {
                         $('#tbl_schedule').append('<tr>\n\
-                                    <td>' + (i + 1) + '</td>\n\
-                                    <td>' + data[i].student_name + '</td>\n\
-                                    <td>' + data[i].nic + '</td>\n\
-                                    <td>' + data[i].exam_date + '</td>\n\
-                                    <td>' + data[i].exam_type + '</td>\n\
-                                    <td>' + data[i].result + '</td>\n\
+                                    <td style="font-size: x-small;font-weight: bold">' + (i + 1) + '</td>\n\
+                                    <td style="font-size: x-small;font-weight: bold">' + data[i].student_name + '</td>\n\
+                                    <td style="font-size: x-small;font-weight: bold">' + data[i].nic + '</td>\n\
+                                    <td style="font-size: x-small;font-weight: bold">' + data[i].exam_date + '</td>\n\
+                                    <td style="font-size: x-small;font-weight: bold">' + data[i].exam_type + '</td>\n\
+                                    <td style="font-size: x-small;font-weight: bold">' + data[i].result + '</td>\n\
                                     </tr>');
 
                     }

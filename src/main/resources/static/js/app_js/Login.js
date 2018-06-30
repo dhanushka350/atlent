@@ -1,4 +1,3 @@
-
 // Dear programmer:
 // When I wrote this code, only god and
 // I knew how it worked.
@@ -21,12 +20,7 @@ $("#loginButton").click(function (e) {
 function login() {
     var name = $("#txt_name").val();
     var password = $("#txt_password").val();
-
-    login.addLoggedUser = function () {
-        var name = $("#name").val();
-        $.session.remove("Logged_User");
-        $.session.set("Logged_User", name);
-    };
+    noty({text: 'checking....', layout: 'topRight', type: 'information'});
     $.post("login/request/authorization",
         {
             name: name,
@@ -34,13 +28,12 @@ function login() {
 
         }, function (result) {
             if (result) {
-                login.addLoggedUser();
-
+                var name = $("#txt_name").val();
+                $.session.remove("Logged_User");
+                $.session.set("Logged_User", name);
                 window.location.replace("/admin_dashboard");
-
-
-            } else if (result === false) {
-                toastr.warning('Login failed!', 'check your user name and password and try again');
+            } else {
+                noty({text: 'wrong user name or password!', layout: 'topRight', type: 'error'});
             }
 
         });

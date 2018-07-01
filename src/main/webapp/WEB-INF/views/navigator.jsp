@@ -12,7 +12,7 @@
 <script src="/js/app_js/Navigator.js"></script>
 <ul class="x-navigation">
     <li class="xn-logo">
-        <a href="/admin_dashboard">Aurora Systems</a>
+        <a href="/admin_dashboard">Aurora</a>
         <a href="#" class="x-navigation-control"></a>
     </li>
 

@@ -19,7 +19,7 @@
     <!-- END META SECTION -->
 
     <!-- CSS INCLUDE -->
-    <link rel="stylesheet" type="text/css" id="theme" href="/css/theme-default.css"/>
+    <link rel="stylesheet" type="text/css" id="theme" href="/static/css/theme-default.css"/>
     <!-- EOF CSS INCLUDE -->
     <style>
 
@@ -227,47 +227,47 @@
 <!-- END MESSAGE BOX-->
 
 <!-- START PRELOADS -->
-<audio id="audio-alert" src="/audio/alert.mp3" preload="auto"></audio>
-<audio id="audio-fail" src="/audio/fail.mp3" preload="auto"></audio>
+<audio id="audio-alert" src="/static/audio/alert.mp3" preload="auto"></audio>
+<audio id="audio-fail" src="/static/audio/fail.mp3" preload="auto"></audio>
 <!-- END PRELOADS -->
 
 <!-- START SCRIPTS -->
 <!-- START PLUGINS -->
-<script type="text/javascript" src="/js/plugins/jquery/jquery.min.js"></script>
-<script type="text/javascript" src="/js/plugins/jquery/jquery-ui.min.js"></script>
-<script type="text/javascript" src="/js/plugins/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/js/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/static/js/plugins/jquery/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/static/js/plugins/bootstrap/bootstrap.min.js"></script>
 <!-- END PLUGINS -->
 
 <!-- THIS PAGE PLUGINS -->
-<script type='text/javascript' src='/js/plugins/icheck/icheck.min.js'></script>
-<script type="text/javascript" src="/js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
+<script type='text/javascript' src='/static/js/plugins/icheck/icheck.min.js'></script>
+<script type="text/javascript" src="/static/js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
 
-<script type="text/javascript" src="/js/plugins/smartwizard/jquery.smartWizard-2.0.min.js"></script>
-<script type="text/javascript" src="/js/plugins/jquery-validation/jquery.validate.js"></script>
-<script type='text/javascript' src='/js/plugins/icheck/icheck.min.js'></script>
-<script type="text/javascript" src="/js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
+<script type="text/javascript" src="/static/js/plugins/smartwizard/jquery.smartWizard-2.0.min.js"></script>
+<script type="text/javascript" src="/static/js/plugins/jquery-validation/jquery.validate.js"></script>
+<script type='text/javascript' src='/static/js/plugins/icheck/icheck.min.js'></script>
+<script type="text/javascript" src="/static/js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
 
-<script type='text/javascript' src='/js/plugins/bootstrap/bootstrap-datepicker.js'></script>
-<script type='text/javascript' src='/js/plugins/bootstrap/bootstrap-select.js'></script>
+<script type='text/javascript' src='/static/js/plugins/bootstrap/bootstrap-datepicker.js'></script>
+<script type='text/javascript' src='/static/js/plugins/bootstrap/bootstrap-select.js'></script>
 
-<script type='text/javascript' src='/js/plugins/validationengine/languages/jquery.validationEngine-en.js'></script>
-<script type='text/javascript' src='/js/plugins/validationengine/jquery.validationEngine.js'></script>
-<script type="text/javascript" src="js/plugins/tagsinput/jquery.tagsinput.min.js"></script>
-<script type='text/javascript' src='/js/plugins/jquery-validation/jquery.validate.js'></script>
-<script type="text/javascript" src="js/plugins/bootstrap/bootstrap-file-input.js"></script>
-<script type='text/javascript' src='/js/plugins/maskedinput/jquery.maskedinput.min.js'></script>
+<script type='text/javascript' src='/static/js/plugins/validationengine/languages/jquery.validationEngine-en.js'></script>
+<script type='text/javascript' src='/static/js/plugins/validationengine/jquery.validationEngine.js'></script>
+<script type="text/javascript" src="/static/js/plugins/tagsinput/jquery.tagsinput.min.js"></script>
+<script type='text/javascript' src='/static/js/plugins/jquery-validation/jquery.validate.js'></script>
+<script type="text/javascript" src="/static/js/plugins/bootstrap/bootstrap-file-input.js"></script>
+<script type='text/javascript' src='/static/js/plugins/maskedinput/jquery.maskedinput.min.js'></script>
 <!-- END PAGE PLUGINS -->
-<script type='text/javascript' src='/js/plugins/noty/jquery.noty.js'></script>
-<script type='text/javascript' src='/js/plugins/noty/layouts/topCenter.js'></script>
-<script type='text/javascript' src='/js/plugins/noty/layouts/topLeft.js'></script>
-<script type='text/javascript' src='/js/plugins/noty/layouts/topRight.js'></script>
-<script type='text/javascript' src='/js/plugins/noty/themes/default.js'></script>
+<script type='text/javascript' src='/static/js/plugins/noty/jquery.noty.js'></script>
+<script type='text/javascript' src='/static/js/plugins/noty/layouts/topCenter.js'></script>
+<script type='text/javascript' src='/static/js/plugins/noty/layouts/topLeft.js'></script>
+<script type='text/javascript' src='/static/js/plugins/noty/layouts/topRight.js'></script>
+<script type='text/javascript' src='/static/js/plugins/noty/themes/default.js'></script>
 <!-- START TEMPLATE -->
-<script type="text/javascript" src="/js/settings.js"></script>
+<script type="text/javascript" src="/static/js/settings.js"></script>
 
-<script type="text/javascript" src="/js/plugins.js"></script>
-<script type="text/javascript" src="/js/actions.js"></script>
-<script type="text/javascript" src="/js/app_js/Payment.js"></script>
+<script type="text/javascript" src="/static/js/plugins.js"></script>
+<script type="text/javascript" src="/static/js/actions.js"></script>
+<script type="text/javascript" src="/static/js/app_js/Payment.js"></script>
 <!-- END TEMPLATE -->
 
 <!-- END SCRIPTS -->

@@ -18,7 +18,7 @@
     <!-- END META SECTION -->
 
     <!-- CSS INCLUDE -->
-    <link rel="stylesheet" type="text/css" id="theme" href="/css/theme-default.css"/>
+    <link rel="stylesheet" type="text/css" id="theme" href="css/theme-default.css"/>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <link href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet"/>
     <!-- EOF CSS INCLUDE -->
@@ -125,43 +125,43 @@
                             <ul class="dropdown-menu">
                                 <li><a href="#"
                                        onClick="$('#customers2').tableExport({type:'json',escape:'false'});"><img
-                                        src='/img/icons/json.png' width="24"/> JSON</a></li>
+                                        src='img/icons/json.png' width="24"/> JSON</a></li>
                                 <li><a href="#"
                                        onClick="$('#customers2').tableExport({type:'json',escape:'false',ignoreColumn:'[2,3]'});"><img
-                                        src='/img/icons/json.png' width="24"/> JSON (ignoreColumn)</a></li>
+                                        src='img/icons/json.png' width="24"/> JSON (ignoreColumn)</a></li>
                                 <li><a href="#"
                                        onClick="$('#customers2').tableExport({type:'json',escape:'true'});"><img
-                                        src='/img/icons/json.png' width="24"/> JSON (with Escape)</a></li>
+                                        src='img/icons/json.png' width="24"/> JSON (with Escape)</a></li>
                                 <li class="divider"></li>
                                 <li><a href="#"
                                        onClick="$('#customers2').tableExport({type:'xml',escape:'false'});"><img
-                                        src='/img/icons/xml.png' width="24"/> XML</a></li>
+                                        src='img/icons/xml.png' width="24"/> XML</a></li>
                                 <li><a href="#" onClick="$('#customers2').tableExport({type:'sql'});"><img
-                                        src='/img/icons/sql.png' width="24"/> SQL</a></li>
+                                        src='img/icons/sql.png' width="24"/> SQL</a></li>
                                 <li class="divider"></li>
                                 <li><a href="#"
                                        onClick="$('#customers2').tableExport({type:'csv',escape:'false'});"><img
-                                        src='/img/icons/csv.png' width="24"/> CSV</a></li>
+                                        src='img/icons/csv.png' width="24"/> CSV</a></li>
                                 <li><a href="#"
                                        onClick="$('#customers2').tableExport({type:'txt',escape:'false'});"><img
-                                        src='/img/icons/txt.png' width="24"/> TXT</a></li>
+                                        src='img/icons/txt.png' width="24"/> TXT</a></li>
                                 <li class="divider"></li>
                                 <li><a href="#"
                                        onClick="$('#customers2').tableExport({type:'excel',escape:'false'});"><img
-                                        src='/img/icons/xls.png' width="24"/> XLS</a></li>
+                                        src='img/icons/xls.png' width="24"/> XLS</a></li>
                                 <li><a href="#"
                                        onClick="$('#customers2').tableExport({type:'doc',escape:'false'});"><img
-                                        src='/img/icons/word.png' width="24"/> Word</a></li>
+                                        src='img/icons/word.png' width="24"/> Word</a></li>
                                 <li><a href="#"
                                        onClick="$('#customers2').tableExport({type:'powerpoint',escape:'false'});"><img
-                                        src='/img/icons/ppt.png' width="24"/> PowerPoint</a></li>
+                                        src='img/icons/ppt.png' width="24"/> PowerPoint</a></li>
                                 <li class="divider"></li>
                                 <li><a href="#"
                                        onClick="$('#customers2').tableExport({type:'png',escape:'false'});"><img
-                                        src='/img/icons/png.png' width="24"/> PNG</a></li>
+                                        src='img/icons/png.png' width="24"/> PNG</a></li>
                                 <li><a href="#"
                                        onClick="$('#customers2').tableExport({type:'pdf',escape:'false'});"><img
-                                        src='/img/icons/pdf.png' width="24"/> PDF</a></li>
+                                        src='img/icons/pdf.png' width="24"/> PDF</a></li>
                             </ul>
                         </div>
 
@@ -216,34 +216,34 @@
 <!-- END MESSAGE BOX-->
 
 <!-- START PRELOADS -->
-<audio id="audio-alert" src="/audio/alert.mp3" preload="auto"></audio>
-<audio id="audio-fail" src="/audio/fail.mp3" preload="auto"></audio>
+<audio id="audio-alert" src="audio/alert.mp3" preload="auto"></audio>
+<audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
 <!-- END PRELOADS -->
 
 <!-- START SCRIPTS -->
 <!-- START PLUGINS -->
-<script type="text/javascript" src="/js/plugins/jquery/jquery.min.js"></script>
-<script type="text/javascript" src="/js/plugins/jquery/jquery-ui.min.js"></script>
-<script type="text/javascript" src="/js/plugins/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>
 
 <!-- END PLUGINS -->
 
 <!-- START THIS PAGE PLUGINS-->
-<script type='text/javascript' src='/js/plugins/icheck/icheck.min.js'></script>
-<script type="text/javascript" src="/js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
-<script type="text/javascript" src="/js/plugins/datatables/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="/js/plugins/tableexport/tableExport.js"></script>
-<script type="text/javascript" src="/js/plugins/tableexport/jquery.base64.js"></script>
-<script type="text/javascript" src="/js/plugins/tableexport/html2canvas.js"></script>
-<script type="text/javascript" src="/js/plugins/tableexport/jspdf/libs/sprintf.js"></script>
-<script type="text/javascript" src="/js/plugins/tableexport/jspdf/jspdf.js"></script>
-<script type="text/javascript" src="/js/plugins/tableexport/jspdf/libs/base64.js"></script>
-<script type="text/javascript" src="/js/settings.js"></script>
-<script type='text/javascript' src='/js/plugins/noty/jquery.noty.js'></script>
-<script type='text/javascript' src='/js/plugins/noty/layouts/topCenter.js'></script>
-<script type='text/javascript' src='/js/plugins/noty/layouts/topLeft.js'></script>
-<script type='text/javascript' src='/js/plugins/noty/layouts/topRight.js'></script>
-<script type='text/javascript' src='/js/plugins/noty/themes/default.js'></script>
+<script type='text/javascript' src='js/plugins/icheck/icheck.min.js'></script>
+<script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
+<script type="text/javascript" src="js/plugins/datatables/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="js/plugins/tableexport/tableExport.js"></script>
+<script type="text/javascript" src="js/plugins/tableexport/jquery.base64.js"></script>
+<script type="text/javascript" src="js/plugins/tableexport/html2canvas.js"></script>
+<script type="text/javascript" src="js/plugins/tableexport/jspdf/libs/sprintf.js"></script>
+<script type="text/javascript" src="js/plugins/tableexport/jspdf/jspdf.js"></script>
+<script type="text/javascript" src="js/plugins/tableexport/jspdf/libs/base64.js"></script>
+<script type="text/javascript" src="js/settings.js"></script>
+<script type='text/javascript' src='js/plugins/noty/jquery.noty.js'></script>
+<script type='text/javascript' src='js/plugins/noty/layouts/topCenter.js'></script>
+<script type='text/javascript' src='js/plugins/noty/layouts/topLeft.js'></script>
+<script type='text/javascript' src='js/plugins/noty/layouts/topRight.js'></script>
+<script type='text/javascript' src='js/plugins/noty/themes/default.js'></script>
 <script type="text/javascript">
     function notyConfirm() {
         noty({
@@ -267,10 +267,10 @@
     }
 
 </script>
-<script type="text/javascript" src="/js/plugins.js"></script>
-<script type="text/javascript" src="/js/actions.js"></script>
-<script type="text/javascript" src="/js/app_js/ExamResult.js"></script>
-<script type='text/javascript' src='/js/plugins/bootstrap/bootstrap-select.js'></script>
+<script type="text/javascript" src="js/plugins.js"></script>
+<script type="text/javascript" src="js/actions.js"></script>
+<script type="text/javascript" src="js/app_js/ExamResult.js"></script>
+<script type='text/javascript' src='js/plugins/bootstrap/bootstrap-select.js'></script>
 <!-- END TEMPLATE -->
 </body>
 </html>

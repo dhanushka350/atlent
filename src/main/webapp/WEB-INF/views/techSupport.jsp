@@ -11,7 +11,7 @@
     <!-- END META SECTION -->
 
     <!-- CSS INCLUDE -->
-    <link rel="stylesheet" type="text/css" id="theme" href="/css/theme-default.css"/>
+    <link rel="stylesheet" type="text/css" id="theme" href="css/theme-default.css"/>
     <!-- EOF CSS INCLUDE -->
 </head>
 <body>
@@ -169,7 +169,7 @@
                         <div class="panel panel-default">
                             <div class="panel-body profile">
                                 <div class="profile-image">
-                                    <img src="/assets/images/users/dhanu.jpg" alt="Nadia Ali"/>
+                                    <img src="assets/images/users/dhanu.jpg" alt="Nadia Ali"/>
                                 </div>
                                 <div class="profile-data">
                                     <div class="profile-data-name">Dhanushka Sandaruwan</div>
@@ -205,7 +205,7 @@
                         <div class="panel panel-default">
                             <div class="panel-body profile">
                                 <div class="profile-image">
-                                    <img src="/assets/images/users/user7.jpg" alt="Dmitry Ivaniuk"/>
+                                    <img src="assets/images/users/user7.jpg" alt="Dmitry Ivaniuk"/>
                                 </div>
                                 <div class="profile-data">
                                     <div class="profile-data-name">Sanju Chandimal</div>
@@ -294,34 +294,34 @@
 <!-- END MESSAGE BOX-->
 
 <!-- START PRELOADS -->
-<audio id="audio-alert" src="/audio/alert.mp3" preload="auto"></audio>
-<audio id="audio-fail" src="/audio/fail.mp3" preload="auto"></audio>
+<audio id="audio-alert" src="audio/alert.mp3" preload="auto"></audio>
+<audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
 <!-- END PRELOADS -->
 
 <!-- START SCRIPTS -->
 <!-- START PLUGINS -->
-<script type="text/javascript" src="/js/plugins/jquery/jquery.min.js"></script>
-<script type="text/javascript" src="/js/plugins/jquery/jquery-ui.min.js"></script>
-<script type="text/javascript" src="/js/plugins/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>
 <!-- END PLUGINS -->
 
 <!-- START THIS PAGE PLUGINS-->
-<script type='text/javascript' src='/js/plugins/icheck/icheck.min.js'></script>
-<script type="text/javascript" src="/js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
+<script type='text/javascript' src='js/plugins/icheck/icheck.min.js'></script>
+<script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
 <!-- END THIS PAGE PLUGINS-->
 
 <!-- START TEMPLATE -->
-<script type="text/javascript" src="/js/settings.js"></script>
+<script type="text/javascript" src="js/settings.js"></script>
 
-<script type="text/javascript" src="/js/plugins.js"></script>
-<script type="text/javascript" src="/js/actions.js"></script>
-<script type="text/javascript" src="/js/app_js/TechSupport.js"></script>
+<script type="text/javascript" src="js/plugins.js"></script>
+<script type="text/javascript" src="js/actions.js"></script>
+<script type="text/javascript" src="js/app_js/TechSupport.js"></script>
 <!-- END TEMPLATE -->
-<script type='text/javascript' src='/js/plugins/noty/jquery.noty.js'></script>
-<script type='text/javascript' src='/js/plugins/noty/layouts/topCenter.js'></script>
-<script type='text/javascript' src='/js/plugins/noty/layouts/topLeft.js'></script>
-<script type='text/javascript' src='/js/plugins/noty/layouts/topRight.js'></script>
-<script type='text/javascript' src='/js/plugins/noty/themes/default.js'></script>
+<script type='text/javascript' src='js/plugins/noty/jquery.noty.js'></script>
+<script type='text/javascript' src='js/plugins/noty/layouts/topCenter.js'></script>
+<script type='text/javascript' src='js/plugins/noty/layouts/topLeft.js'></script>
+<script type='text/javascript' src='js/plugins/noty/layouts/topRight.js'></script>
+<script type='text/javascript' src='js/plugins/noty/themes/default.js'></script>
 <!-- END SCRIPTS -->
 </body>
 </html>

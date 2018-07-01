@@ -31,7 +31,7 @@ function login() {
                 var name = $("#txt_name").val();
                 $.session.remove("Logged_User");
                 $.session.set("Logged_User", name);
-                window.location.replace("/dashboard/");
+                window.location.replace("/dashboard");
             } else {
                 noty({text: 'wrong user name or password!', layout: 'topRight', type: 'error'});
             }

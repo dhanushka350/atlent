@@ -18,9 +18,9 @@ public class ViewHandlerController {
         return new ModelAndView("index");
     }
 
-    @RequestMapping(value = {"admin_dashboard"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"dashboard"}, method = RequestMethod.GET)
     public ModelAndView getAdminDashboard() {
-        return new ModelAndView("admin_dashboard");
+        return new ModelAndView("dashboard");
     }
 
     @RequestMapping(value = {"all/student"}, method = RequestMethod.GET)

@@ -85,14 +85,14 @@
     </div>
 
 </div>
-<script src="../../../resources/static/js/plugins/jquery/jquery.min.js"></script>
-<script src="../../../resources/static/js/app_js/Login.js"></script>
-<script src="../../../resources/static/session/jquery.session.js"></script>
-<script type='text/javascript' src='/static/js/plugins/noty/jquery.noty.js'></script>
-<script type='text/javascript' src='/static/js/plugins/noty/layouts/topCenter.js'></script>
-<script type='text/javascript' src='/static/js/plugins/noty/layouts/topLeft.js'></script>
-<script type='text/javascript' src='/static/js/plugins/noty/layouts/topRight.js'></script>
-<script type='text/javascript' src='/static/js/plugins/noty/themes/default.js'></script>
+<script src="/js/plugins/jquery/jquery.min.js"></script>
+<script src="/js/app_js/Login.js"></script>
+<script src="/session/jquery.session.js"></script>
+<script type='text/javascript' src='/js/plugins/noty/jquery.noty.js'></script>
+<script type='text/javascript' src='/js/plugins/noty/layouts/topCenter.js'></script>
+<script type='text/javascript' src='/js/plugins/noty/layouts/topLeft.js'></script>
+<script type='text/javascript' src='/js/plugins/noty/layouts/topRight.js'></script>
+<script type='text/javascript' src='/js/plugins/noty/themes/default.js'></script>
 </body>
 </html>
 

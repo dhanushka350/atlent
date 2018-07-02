@@ -65,10 +65,10 @@ public class ViewHandlerController {
         return new ModelAndView("StaffMembers");
     }
 
-    @RequestMapping(value = {"new/teacher/profile"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"income/expenses"}, method = RequestMethod.GET)
     public ModelAndView teachersRegistration() {
         System.out.println("working");
-        return new ModelAndView("teachersRegistration");
+        return new ModelAndView("Income");
     }
 
     @RequestMapping(value = {"page/not found"}, method = RequestMethod.GET)

@@ -8,5 +8,6 @@ import org.springframework.stereotype.Repository;
 public interface SystemUserDao extends JpaRepository<SystemUser,Integer> {
 
     SystemUser findSystemUserByUserEqualsAndPasswordEquals(String name,String password)throws Exception;
+    SystemUser findByUser(String name)throws Exception;
 
 }

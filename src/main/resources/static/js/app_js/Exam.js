@@ -13,10 +13,7 @@
 // Dhanushka
 
 
-// $(function () {
-//     alert("wadaaaaa");
-//     Exam.allSchedules();
-// });
+
 
 $("#txt_nic").keyup(function () {
 

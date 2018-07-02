@@ -5,6 +5,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "t_user")
@@ -35,16 +37,24 @@ public class SystemUser implements Serializable {
     @JoinColumn(name = "branch")
     private Branch branch;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.LAZY)
+    private List<Expense> expenses = new ArrayList<>();
+
     public SystemUser() {
     }
 
-    public SystemUser(String user, String password, String mobile, String address, String nic, Branch branch) {
+    public SystemUser(String user, String password, String mobile, String address, String nic, Branch branch, List<Expense> expenses) {
         this.user = user;
         this.password = password;
         this.mobile = mobile;
         this.address = address;
         this.nic = nic;
         this.branch = branch;
+        this.expenses = expenses;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
     public Integer getUser_id() {
@@ -87,6 +97,14 @@ public class SystemUser implements Serializable {
         this.address = address;
     }
 
+    public String getNic() {
+        return nic;
+    }
+
+    public void setNic(String nic) {
+        this.nic = nic;
+    }
+
     public Branch getBranch() {
         return branch;
     }
@@ -95,12 +113,12 @@ public class SystemUser implements Serializable {
         this.branch = branch;
     }
 
-    public String getNic() {
-        return nic;
+    public List<Expense> getExpenses() {
+        return expenses;
     }
 
-    public void setNic(String nic) {
-        this.nic = nic;
+    public void setExpenses(List<Expense> expenses) {
+        this.expenses = expenses;
     }
 
     @Override
@@ -113,6 +131,7 @@ public class SystemUser implements Serializable {
         sb.append(", address='").append(address).append('\'');
         sb.append(", nic='").append(nic).append('\'');
         sb.append(", branch=").append(branch);
+        sb.append(", expenses=").append(expenses);
         sb.append('}');
         return sb.toString();
     }

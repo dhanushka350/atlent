@@ -9,10 +9,10 @@
 <!-- START PAGE SIDEBAR -->
 
 <!-- START X-NAVIGATION -->
-<script src="js/app_js/Navigator.js"></script>
+<script src="/js/app_js/Navigator.js"></script>
 <ul class="x-navigation">
     <li class="xn-logo">
-        <a href="/dashboard">Aurora</a>
+        <a href="/dashboard">IJSE 38</a>
         <a href="#" class="x-navigation-control"></a>
     </li>
 

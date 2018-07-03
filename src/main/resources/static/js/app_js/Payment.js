@@ -164,54 +164,61 @@ var payment = {
             }
 
             today = yyyy + '-' + mm + '-' + dd;
+            var user = $.session.get("Logged_User");
 
-            var e = {};
-            e["paymentID"] = $('#select_license_packages').val();
-            e["studentNIC"] = $('#txt_nic').val();
-            e["date"] = today;
-            e["fullAmount"] = $('#txt_full_payment').val();
-            e["paidAmount"] = $('#txt_total').val();
-            e["balancePayment"] = $('#txt_balance_payment').val();
+            if (user === "undefined") {
+                window.location.replace("/");
+            } else {
+                var e = {};
+                e["paymentID"] = $('#select_license_packages').val();
+                e["studentNIC"] = $('#txt_nic').val();
+                e["date"] = today;
+                e["fullAmount"] = $('#txt_full_payment').val();
+                e["paidAmount"] = $('#txt_total').val();
+                e["balancePayment"] = $('#txt_balance_payment').val();
+                e["staffMember"] = user;
 
-            var paymentData = JSON.stringify(e);
-            $.ajax({
-                url: '/payment/do/student/payments',
-                dataType: 'json',
-                contentType: "application/json",
-                type: 'POST',
-                data: paymentData,
-                success: function (data, textStatus, jqXHR) {
-                    if (data) {
-                        noty({text: 'Payment Details saved.', layout: 'topRight', type: 'success'});
-                    } else if (data === false) {
-                        noty({text: "An error occurred!", layout: 'topRight', type: 'error'});
+                var paymentData = JSON.stringify(e);
+                $.ajax({
+                    url: '/payment/do/student/payments',
+                    dataType: 'json',
+                    contentType: "application/json",
+                    type: 'POST',
+                    data: paymentData,
+                    success: function (data, textStatus, jqXHR) {
+                        if (data) {
+                            noty({text: 'Payment Details saved.', layout: 'topRight', type: 'success'});
+                        } else if (data === false) {
+                            noty({text: "An error occurred!", layout: 'topRight', type: 'error'});
+                        }
+
+                        $("#txt_license_type_price").val("");
+                        $("#txt_full_payment").val("");
+                        $("#txt_paid_amount").val("");
+                        $("#txt_to_pay").val("");
+                        $("#txt_total").val("");
+                        $("#txt_balance_payment").val("");
+                        window.location.replace("/student/payments");
+
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        noty({
+                            text: "Something went wrong.. \n please double check selected package,NIC and other required data.. \n if you can't find the problem please contact developers." + textStatus,
+                            layout: 'topRight',
+                            type: 'error'
+                        });
+                        console.log("error" + jqXHR + " - " + errorThrown);
+                        console.log(textStatus);
+                        console.log("R: " + jqXHR.status);
+                        console.log("R: " + jqXHR.responseText);
+
+                    },
+                    beforeSend: function (xhr) {
+
                     }
+                });
+            }
 
-                    $("#txt_license_type_price").val("");
-                    $("#txt_full_payment").val("");
-                    $("#txt_paid_amount").val("");
-                    $("#txt_to_pay").val("");
-                    $("#txt_total").val("");
-                    $("#txt_balance_payment").val("");
-                    window.location.replace("/student/payments");
-
-                },
-                error: function (jqXHR, textStatus, errorThrown) {
-                    noty({
-                        text: "Something went wrong.. \n please double check selected package,NIC and other required data.. \n if you can't find the problem please contact developers." + textStatus,
-                        layout: 'topRight',
-                        type: 'error'
-                    });
-                    console.log("error" + jqXHR + " - " + errorThrown);
-                    console.log(textStatus);
-                    console.log("R: " + jqXHR.status);
-                    console.log("R: " + jqXHR.responseText);
-
-                },
-                beforeSend: function (xhr) {
-
-                }
-            });
         }
 
     }

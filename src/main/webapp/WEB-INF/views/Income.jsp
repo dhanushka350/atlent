@@ -23,7 +23,7 @@
     <link href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet"/>
     <!-- EOF CSS INCLUDE -->
 </head>
-<body onload="income.allBranches();">
+<body onload="income.allBranches();income.allIncomeDates();income.allExpenseDates();income.startTime();">
 <!-- START PAGE CONTAINER -->
 <div class="page-container">
 
@@ -73,26 +73,26 @@
                                             <div class="col-md-2">
                                                 <input type="text"
                                                        class="validate[required,custom[integer],min[18],max[120]] form-control"
-                                                       id="txt_new_expense_date" placeholder="DATE"/>
+                                                       id="txt_new_expense_date" placeholder="DATE" style="font-weight: bold;"/>
                                                 <span class="help-block">Required, format YYYY-MM-DD</span>
                                             </div>
                                             <div class="col-md-2">
                                                 <input type="text"
                                                        class="validate[required,custom[integer],min[18],max[120]] form-control"
-                                                       id="txt_new_expense_time" placeholder="TIME"/>
+                                                       id="txt_new_expense_time" placeholder="TIME" style="font-weight: bold;"/>
                                                 <span class="help-block">Required, format hh-mm-aa</span>
                                             </div>
                                             <div class="col-md-2">
                                                 <input type="text"
                                                        class="validate[required,custom[integer],min[18],max[120]] form-control"
-                                                       id="txt_new_expense" placeholder="Amount"/>
+                                                       id="txt_new_expense" placeholder="Amount" style="font-weight: bold;"/>
                                                 <span class="help-block">Required,</span>
                                             </div>
                                             <div class="col-md-3">
                                                 <input type="text"
                                                        class="validate[required,custom[integer],min[18],max[120]] form-control"
-                                                       id="txt_expense_reason" placeholder="REASON"/>
-                                                <span class="help-block">Required, what is the reason for this payment</span>
+                                                       id="txt_expense_reason" placeholder="DESCRIPTION" style="font-weight: bold;"/>
+                                                <span class="help-block">Required, expense description here</span>
                                             </div>
 
                                             <div class="col-md-3">
@@ -229,7 +229,7 @@
                                 </div>
                                 <label class="col-md-3 control-label">Date :</label>
                                 <div class="col-md-3">
-                                    <select data-live-search="true">
+                                    <select data-live-search="true" id="select_date2">
 
                                     </select>
                                 </div>
@@ -301,8 +301,9 @@
                             <tr>
                                 <th>#</th>
                                 <th>Date</th>
+                                <th>Time</th>
                                 <th>Amount</th>
-                                <th>Reason</th>
+                                <th>Description</th>
                                 <th>Staff Member</th>
                             </tr>
                             </thead>

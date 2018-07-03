@@ -40,10 +40,13 @@ public class SystemUser implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.LAZY)
     private List<Expense> expenses = new ArrayList<>();
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "staffMember", fetch = FetchType.LAZY)
+    private List<Payment> payments = new ArrayList<>();
+
     public SystemUser() {
     }
 
-    public SystemUser(String user, String password, String mobile, String address, String nic, Branch branch, List<Expense> expenses) {
+    public SystemUser(String user, String password, String mobile, String address, String nic, Branch branch, List<Expense> expenses, List<Payment> payments) {
         this.user = user;
         this.password = password;
         this.mobile = mobile;
@@ -51,6 +54,7 @@ public class SystemUser implements Serializable {
         this.nic = nic;
         this.branch = branch;
         this.expenses = expenses;
+        this.payments = payments;
     }
 
     public static long getSerialVersionUID() {
@@ -121,6 +125,14 @@ public class SystemUser implements Serializable {
         this.expenses = expenses;
     }
 
+    public List<Payment> getPayments() {
+        return payments;
+    }
+
+    public void setPayments(List<Payment> payments) {
+        this.payments = payments;
+    }
+
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("SystemUser{");
@@ -132,6 +144,7 @@ public class SystemUser implements Serializable {
         sb.append(", nic='").append(nic).append('\'');
         sb.append(", branch=").append(branch);
         sb.append(", expenses=").append(expenses);
+        sb.append(", payments=").append(payments);
         sb.append('}');
         return sb.toString();
     }

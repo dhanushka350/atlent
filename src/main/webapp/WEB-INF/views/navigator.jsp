@@ -12,7 +12,7 @@
 <script src="/js/app_js/Navigator.js"></script>
 <ul class="x-navigation">
     <li class="xn-logo">
-        <a href="/dashboard">IJSE 38</a>
+        <a href="/dashboard">Fuck Me</a>
         <a href="#" class="x-navigation-control"></a>
     </li>
 

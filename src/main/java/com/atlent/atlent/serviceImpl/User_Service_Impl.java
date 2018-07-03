@@ -130,7 +130,7 @@ public class User_Service_Impl implements User_Service {
         return packageDao.getPackageById(Integer.parseInt(transfer.getP_packageID()));
     }
 
-    private Registration makeRegistrationEntity(RegistrationDataTransfer transfer, Student student) {
+    private Registration makeRegistrationEntity(RegistrationDataTransfer transfer, Student student) throws Exception {
         Registration registration = registrationDao.getByStudent(student);
         if (registration == null) {
             registration = new Registration();

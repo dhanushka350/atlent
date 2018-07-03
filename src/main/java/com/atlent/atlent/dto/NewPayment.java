@@ -9,17 +9,27 @@ public class NewPayment {
     private String fullAmount;
     private String paidAmount;
     private String balancePayment;
+    private String staffMember;
 
     public NewPayment() {
     }
 
-    public NewPayment(int paymentID, String studentNIC, String date, String fullAmount, String paidAmount, String balancePayment) {
+    public NewPayment(int paymentID, String studentNIC, String date, String fullAmount, String paidAmount, String balancePayment, String staffMember) {
         this.paymentID = paymentID;
         this.studentNIC = studentNIC;
         this.date = date;
         this.fullAmount = fullAmount;
         this.paidAmount = paidAmount;
         this.balancePayment = balancePayment;
+        this.staffMember = staffMember;
+    }
+
+    public String getStaffMember() {
+        return staffMember;
+    }
+
+    public void setStaffMember(String staffMember) {
+        this.staffMember = staffMember;
     }
 
     public int getPaymentID() {

@@ -24,6 +24,8 @@ public class Payment_Service_Impl implements Payment_Service {
     private RegistrationPackageDetailsDao packageDetailsDao;
     @Autowired
     private PackageDao packageDao;
+    @Autowired
+    private SystemUserDao systemUserDao;
 
     @Override
     public List<PaymentDto> getStudentPackagePayments(String nic, String packageID) throws Exception {
@@ -56,13 +58,14 @@ public class Payment_Service_Impl implements Payment_Service {
         Registration registration = registrationDao.getByStudent(student);
         Package packageID = packageDao.getPackageById(payment.getPaymentID());
         RegistrationPackageDetails registrationPackageDetails = packageDetailsDao.getByAPackageAndAndRegistration(packageID, registration);
-
+        SystemUser systemUser = systemUserDao.findByUser(payment.getStaffMember());
         Payment payment1 = new Payment();
         payment1.setRegistrationPackageDetails(registrationPackageDetails);
         payment1.setPaidAmount(payment.getPaidAmount());
         payment1.setFullAmount(payment.getFullAmount());
         payment1.setBalancePayment(payment.getBalancePayment());
         payment1.setDate(payment.getDate());
+        payment1.setStaffMember(systemUser);
         Payment save = paymentDao.save(payment1);
         if (save != null) {
             return true;

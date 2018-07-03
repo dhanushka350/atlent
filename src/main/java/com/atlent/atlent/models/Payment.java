@@ -29,15 +29,21 @@ public class Payment implements Serializable {
     @Column(name = "balance_payment")
     private String balancePayment;
 
+    @ManyToOne
+    @JoinColumn(name = "staff_member")
+    private SystemUser staffMember;
+
+
     public Payment() {
     }
 
-    public Payment(RegistrationPackageDetails registrationPackageDetails, String date, String fullAmount, String paidAmount, String balancePayment) {
+    public Payment(RegistrationPackageDetails registrationPackageDetails, String date, String fullAmount, String paidAmount, String balancePayment, SystemUser staffMember) {
         this.registrationPackageDetails = registrationPackageDetails;
         this.date = date;
         this.fullAmount = fullAmount;
         this.paidAmount = paidAmount;
         this.balancePayment = balancePayment;
+        this.staffMember = staffMember;
     }
 
     public int getPaymentID() {
@@ -88,6 +94,18 @@ public class Payment implements Serializable {
         this.balancePayment = balancePayment;
     }
 
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public SystemUser getStaffMember() {
+        return staffMember;
+    }
+
+    public void setStaffMember(SystemUser staffMember) {
+        this.staffMember = staffMember;
+    }
+
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("Payment{");
@@ -97,6 +115,7 @@ public class Payment implements Serializable {
         sb.append(", fullAmount='").append(fullAmount).append('\'');
         sb.append(", paidAmount='").append(paidAmount).append('\'');
         sb.append(", balancePayment='").append(balancePayment).append('\'');
+        sb.append(", staffMember=").append(staffMember);
         sb.append('}');
         return sb.toString();
     }

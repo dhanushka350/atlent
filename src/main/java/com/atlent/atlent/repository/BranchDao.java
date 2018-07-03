@@ -8,5 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface BranchDao extends JpaRepository <Branch,Integer>{
 
-    Branch getByBranchID(int id);
+    Branch getByBranchID(int id)throws Exception;
+    Branch getByBranch(String s)throws Exception;
 }

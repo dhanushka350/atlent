@@ -1,5 +1,6 @@
 package com.atlent.atlent.controllers;
 
+import com.atlent.atlent.MailingSystem.AuroraMailSystem;
 import com.atlent.atlent.dto.ExamDto;
 import com.atlent.atlent.dto.ExpenseDto;
 import com.atlent.atlent.dto.IncomeDto;
@@ -19,6 +20,8 @@ public class ExpenseController {
 
     @Autowired
     private ExpensesService service;
+    @Autowired
+    private AuroraMailSystem mailSystem;
 
     @RequestMapping(value = {"add/new/expense"}, method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
     @ResponseBody
@@ -30,6 +33,7 @@ public class ExpenseController {
 
         } catch (Exception e) {
             e.printStackTrace();
+            mailSystem.reportException(e);
         }
         LOG.info("END:saving expense");
         return res;
@@ -44,6 +48,7 @@ public class ExpenseController {
             list = service.getAllImcomeDates();
         } catch (Exception e) {
             e.printStackTrace();
+            mailSystem.reportException(e);
         }
         LOG.info("END: get all income dates.");
         return list;
@@ -58,6 +63,7 @@ public class ExpenseController {
             list = service.getAllExpenseDates();
         } catch (Exception e) {
             e.printStackTrace();
+            mailSystem.reportException(e);
         }
         LOG.info("END: get all income dates.");
         return list;
@@ -72,6 +78,7 @@ public class ExpenseController {
             list = service.getAllIncomeByBranchAndDate(branch, date);
         } catch (Exception e) {
             e.printStackTrace();
+            mailSystem.reportException(e);
         }
         LOG.info("END: get all income dates By Branch And Date" + list.size());
         return list;
@@ -86,6 +93,7 @@ public class ExpenseController {
             list = service.getAllExpensesByDateAndBranch(branch, date);
         } catch (Exception e) {
             e.printStackTrace();
+            mailSystem.reportException(e);
         }
         LOG.info("END: get all Expenses dates By Branch And Date" + list.size());
         return list;

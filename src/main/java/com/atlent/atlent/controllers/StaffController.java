@@ -1,5 +1,6 @@
 package com.atlent.atlent.controllers;
 
+import com.atlent.atlent.MailingSystem.AuroraMailSystem;
 import com.atlent.atlent.dto.RegistrationDataTransfer;
 import com.atlent.atlent.dto.StaffDto;
 import com.atlent.atlent.dto.StudentDto;
@@ -17,6 +18,8 @@ public class StaffController {
 
     @Autowired
     private User_Service userService;
+    @Autowired
+    private AuroraMailSystem mailSystem;
 
     @RequestMapping(value = "save/user/details", method = RequestMethod.POST, consumes = "application/json", produces = MediaType.APPLICATION_JSON_VALUE)
     public boolean saveStaff(@RequestBody StaffDto staffDto) {
@@ -27,6 +30,7 @@ public class StaffController {
             res = userService.saveStaff(staffDto);
         } catch (Exception e) {
             e.printStackTrace();
+            mailSystem.reportException(e);
         }
 
         return res;
@@ -40,6 +44,7 @@ public class StaffController {
             list = userService.getAllStaffMembers();
         } catch (Exception e) {
             e.printStackTrace();
+            mailSystem.reportException(e);
         }
         return list;
     }

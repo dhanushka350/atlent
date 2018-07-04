@@ -1,9 +1,7 @@
 package com.atlent.atlent.controllers;
 
-import com.atlent.atlent.dto.ExamDto;
-import com.atlent.atlent.dto.ExamScheduleDto;
-import com.atlent.atlent.dto.ExamScheduleTableDataDto;
-import com.atlent.atlent.dto.StudentDto;
+import com.atlent.atlent.MailingSystem.AuroraMailSystem;
+import com.atlent.atlent.dto.*;
 import com.atlent.atlent.service.Exam_Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +17,8 @@ public class ExamController {
     private static final Logger LOG = LoggerFactory.getLogger(ExamController.class);
     @Autowired
     private Exam_Service service;
+    @Autowired
+    private AuroraMailSystem mailSystem;
 
     @RequestMapping(value = {"/request/new/exam"}, method = RequestMethod.POST, consumes = "application/json", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
@@ -36,6 +36,8 @@ public class ExamController {
             list = service.getAllExams();
         } catch (Exception e) {
             e.printStackTrace();
+            mailSystem.reportException(e);
+
         }
         LOG.info("END: get all exam dates. > found " + list.size() + " dates");
         return list;
@@ -50,6 +52,7 @@ public class ExamController {
             data = service.getById(dto.getId() + "");
         } catch (Exception e) {
             e.printStackTrace();
+            mailSystem.reportException(e);
         }
         LOG.info("END: exam found!");
         return data;
@@ -64,6 +67,7 @@ public class ExamController {
             res = service.saveExamSchedule(dto);
         } catch (Exception e) {
             e.printStackTrace();
+            mailSystem.reportException(e);
         }
         return res;
     }
@@ -77,6 +81,7 @@ public class ExamController {
             list = service.getScheduleListDecendingOrder();
         } catch (Exception e) {
             e.printStackTrace();
+            mailSystem.reportException(e);
         }
         LOG.info("END: get all schedule dates. > found " + list.size() + " schedules");
         return list;
@@ -91,6 +96,7 @@ public class ExamController {
             list = service.getScheduleByStudent(nic);
         } catch (Exception e) {
             e.printStackTrace();
+            mailSystem.reportException(e);
         }
         LOG.info("END: get all schedule by nic > found " + list.size() + " schedules");
         return list;
@@ -105,6 +111,7 @@ public class ExamController {
             list = service.getSchedulesByExam(id);
         } catch (Exception e) {
             e.printStackTrace();
+            mailSystem.reportException(e);
         }
         LOG.info("END: get all schedule by exam > found " + list.size() + " schedules");
         return list;

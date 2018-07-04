@@ -1,5 +1,6 @@
 package com.atlent.atlent.controllers;
 
+import com.atlent.atlent.MailingSystem.AuroraMailSystem;
 import com.atlent.atlent.dto.NewPayment;
 import com.atlent.atlent.dto.PackageDto;
 import com.atlent.atlent.dto.PaymentDto;
@@ -19,6 +20,8 @@ public class PaymentController {
 
     @Autowired
     private Payment_Service payment_service;
+    @Autowired
+    private AuroraMailSystem mailSystem;
 
     @RequestMapping(value = {"get/payment/history"}, method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
     @ResponseBody
@@ -30,6 +33,7 @@ public class PaymentController {
             list = payment_service.getStudentPackagePayments(split[0], split[1]);
         } catch (Exception e) {
             e.printStackTrace();
+            mailSystem.reportException(e);
         }
         LOG.info("END:get payment history.." + list.size());
         return list;
@@ -45,6 +49,7 @@ public class PaymentController {
             res = payment_service.savePayment(data);
         } catch (Exception e) {
             e.printStackTrace();
+            mailSystem.reportException(e);
         }
         LOG.info("END:saving payment data");
         return res;

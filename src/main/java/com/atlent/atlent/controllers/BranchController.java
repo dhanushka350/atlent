@@ -1,7 +1,9 @@
 package com.atlent.atlent.controllers;
 
+import com.atlent.atlent.MailingSystem.AuroraMailSystem;
 import com.atlent.atlent.dto.BranchDto;
 import com.atlent.atlent.dto.ExamDto;
+import com.atlent.atlent.dto.MailDto;
 import com.atlent.atlent.service.Branch_Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +20,8 @@ public class BranchController {
 
     @Autowired
     private Branch_Service service;
+    @Autowired
+    private AuroraMailSystem mailSystem;
 
     @RequestMapping(value = {"all/branch/list"}, method = RequestMethod.GET, consumes = "application/json", produces = "application/json")
     @ResponseBody
@@ -27,6 +31,7 @@ public class BranchController {
             list = service.getAllBranch();
         } catch (Exception e) {
             e.printStackTrace();
+            mailSystem.reportException(e);
         }
         return list;
     }

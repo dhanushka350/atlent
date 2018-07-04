@@ -14,66 +14,67 @@ public class ViewHandlerController {
 
     @RequestMapping(value = {"/"}, method = RequestMethod.GET)
     public ModelAndView getLoginPage() {
-        //controller.sendSMS();
+        
         return new ModelAndView("index");
     }
 
     @RequestMapping(value = {"dashboard"}, method = RequestMethod.GET)
     public ModelAndView getAdminDashboard() {
+
         return new ModelAndView("dashboard");
     }
 
     @RequestMapping(value = {"all/student"}, method = RequestMethod.GET)
     public ModelAndView getAllStudent() {
-        System.out.println("working");
+
         return new ModelAndView("allStudent");
     }
 
     @RequestMapping(value = {"new/student"}, method = RequestMethod.GET)
     public ModelAndView StudentRegistration() {
-        System.out.println("working");
+
         return new ModelAndView("studentRegistration");
     }
 
     @RequestMapping(value = {"student/exam/schedule"}, method = RequestMethod.GET)
     public ModelAndView StudentPromotion() {
-        System.out.println("working");
+
         return new ModelAndView("exam_schedule");
     }
 
     @RequestMapping(value = {"student/payments"}, method = RequestMethod.GET)
     public ModelAndView StudentAttendance() {
-        System.out.println("working payment");
+
         return new ModelAndView("payment");
     }
 
     @RequestMapping(value = {"student/exam/results"}, method = RequestMethod.GET)
     public ModelAndView ParentRegistration() {
-        System.out.println("working");
+
         return new ModelAndView("examResult");
     }
 
     @RequestMapping(value = {"tech/support"}, method = RequestMethod.GET)
     public ModelAndView AllParent() {
-        System.out.println("working");
+
         return new ModelAndView("techSupport");
     }
 
     @RequestMapping(value = {"staff/members"}, method = RequestMethod.GET)
     public ModelAndView searchStudents() {
-        System.out.println("working");
+
         return new ModelAndView("StaffMembers");
     }
 
     @RequestMapping(value = {"income/expenses"}, method = RequestMethod.GET)
     public ModelAndView teachersRegistration() {
-        System.out.println("working");
+
         return new ModelAndView("Income");
     }
 
     @RequestMapping(value = {"page/not found"}, method = RequestMethod.GET)
     public ModelAndView teachersList() {
-        System.out.println("working");
+
         return new ModelAndView("pages-error-404");
     }
 

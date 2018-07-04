@@ -1,5 +1,6 @@
 package com.atlent.atlent.controllers;
 
+import com.atlent.atlent.MailingSystem.AuroraMailSystem;
 import com.atlent.atlent.dto.ExamDto;
 import com.atlent.atlent.dto.PackageDto;
 import com.atlent.atlent.service.Package_Service;
@@ -18,6 +19,8 @@ public class PackageController {
 
     @Autowired
     private Package_Service service;
+    @Autowired
+    private AuroraMailSystem mailSystem;
 
     @RequestMapping(value = {"all/license/package/list"}, method = RequestMethod.GET, consumes = "application/json", produces = "application/json")
     @ResponseBody
@@ -28,6 +31,7 @@ public class PackageController {
             list = service.getAllPackages();
         } catch (Exception e) {
             e.printStackTrace();
+            mailSystem.reportException(e);
         }
         LOG.info("END:  > found " + list.size() + " license packages.");
         return list;
@@ -42,6 +46,7 @@ public class PackageController {
             dto = service.getPackageById(name);
         } catch (Exception e) {
             e.printStackTrace();
+            mailSystem.reportException(e);
         }
         LOG.info("END:get package details by name - " + name + " package id = " + dto.getId() + " package fee = " + dto.getFee());
         return dto;
@@ -56,6 +61,7 @@ public class PackageController {
            list = service.getPackagesByStudentNic(nic);
         } catch (Exception e) {
             e.printStackTrace();
+            mailSystem.reportException(e);
         }
         LOG.info("END:get package for payment");
         return list;

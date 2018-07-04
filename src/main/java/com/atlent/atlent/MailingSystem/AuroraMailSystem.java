@@ -20,36 +20,43 @@ public class AuroraMailSystem {
 
     private String password = "Mahamodara1234";
 
-    public void sendMail(MailDto mailDto){
+    public void reportException(Exception e) {
+        MailDto dto = new MailDto();
+        dto.setSubject("Error Detected!");
+        dto.setMessage(e.toString());
+        sendMail(dto);
+    }
+
+    public void sendMail(MailDto mailDto) {
 
         String message = mailDto.getMessage();
 
-        String Exception_Message = message+"\n  --- Atlent System Mathara(AuroraDevOps)";
+        String Exception_Message = message + "\n  --- Atlent System Mathara(AuroraDevOps)";
 
         Properties properties = new Properties();
-        properties.put("mail.smtp.auth","true");
-        properties.put("mail.smtp.starttls.enable","true");
-        properties.put("mail.smtp.host","smtp.gmail.com");
-        properties.put("mail.smtp.port","587");
+        properties.put("mail.smtp.auth", "true");
+        properties.put("mail.smtp.starttls.enable", "true");
+        properties.put("mail.smtp.host", "smtp.gmail.com");
+        properties.put("mail.smtp.port", "587");
 
         Session session = Session.getInstance(properties,
-                new javax.mail.Authenticator(){
+                new javax.mail.Authenticator() {
                     @Override
                     protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication(userName,password);
+                        return new PasswordAuthentication(userName, password);
                     }
                 });
 
         Message msg = new MimeMessage(session);
         try {
-            msg.setFrom(new InternetAddress(userName,false));
-            msg.setRecipients(Message.RecipientType.TO,InternetAddress.parse("sanjuchandimal.net@gmail.com,dhanushka@akvasoft.com"));
+            msg.setFrom(new InternetAddress(userName, false));
+            msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse("sanjuchandimal.net@gmail.com,dhanushka@akvasoft.com"));
             msg.setSubject(mailDto.getSubject());
-            msg.setContent(Exception_Message,"text/html");
+            msg.setContent(Exception_Message, "text/html");
             msg.setSentDate(new Date());
 
             MimeBodyPart messageBodyPart = new MimeBodyPart();
-            messageBodyPart.setContent(Exception_Message,"text/html");
+            messageBodyPart.setContent(Exception_Message, "text/html");
 
             Multipart multipart = new MimeMultipart();
             multipart.addBodyPart(messageBodyPart);

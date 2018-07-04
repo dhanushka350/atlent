@@ -1,5 +1,6 @@
 package com.atlent.atlent.controllers;
 
+import com.atlent.atlent.MailingSystem.AuroraMailSystem;
 import com.atlent.atlent.dto.LisenceCategoryDto;
 import com.atlent.atlent.dto.RegistrationDataTransfer;
 import com.atlent.atlent.dto.StudentDto;
@@ -19,6 +20,8 @@ public class StudentController {
     private static final Logger LOG = LoggerFactory.getLogger(StudentController.class);
     @Autowired
     private User_Service userService;
+    @Autowired
+    private AuroraMailSystem mailSystem;
 
     @RequestMapping(value = "save/student/details", method = RequestMethod.POST, consumes = "application/json", produces = MediaType.APPLICATION_JSON_VALUE)
     public boolean saveStudent(@RequestBody RegistrationDataTransfer dataTransfer) {
@@ -29,6 +32,7 @@ public class StudentController {
             res = userService.saveStudent(dataTransfer);
         } catch (Exception e) {
             e.printStackTrace();
+            mailSystem.reportException(e);
         }
         LOG.info("END:saving student data..", "is saved ? " + res);
         return res;
@@ -43,6 +47,7 @@ public class StudentController {
             list = userService.getAllStudentList();
         } catch (Exception e) {
             e.printStackTrace();
+            mailSystem.reportException(e);
         }
         LOG.info("END: get all student packages. > found " + list.size() + " student");
         return list;
@@ -57,6 +62,7 @@ public class StudentController {
             registration = userService.getStudentDetailsForRegistration(nic);
         } catch (Exception e) {
             e.printStackTrace();
+            mailSystem.reportException(e);
         }
         LOG.info("END: current data check..");
         return registration;

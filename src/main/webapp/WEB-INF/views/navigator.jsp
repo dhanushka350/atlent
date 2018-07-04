@@ -12,7 +12,7 @@
 <script src="/js/app_js/Navigator.js"></script>
 <ul class="x-navigation">
     <li class="xn-logo">
-        <a href="/dashboard">Fuck Me</a>
+        <a href="/dashboard" style="font-size: small;font-weight: bold">ABC Driving School</a>
         <a href="#" class="x-navigation-control"></a>
     </li>
 

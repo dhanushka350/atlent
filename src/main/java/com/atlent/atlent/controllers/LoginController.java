@@ -1,5 +1,6 @@
 package com.atlent.atlent.controllers;
 
+import com.atlent.atlent.MailingSystem.AuroraMailSystem;
 import com.atlent.atlent.dto.UserDto;
 import com.atlent.atlent.service.User_Service;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,8 @@ public class LoginController {
 
     @Autowired
     private User_Service service;
+    @Autowired
+    private AuroraMailSystem mailSystem;
 
     @RequestMapping(value = {"/request/authorization"}, method = RequestMethod.POST)
     @ResponseBody
@@ -29,6 +32,7 @@ public class LoginController {
             res = service.check_login(userDto);
         } catch (Exception e) {
             e.printStackTrace();
+            mailSystem.reportException(e);
         }
         return res;
     }

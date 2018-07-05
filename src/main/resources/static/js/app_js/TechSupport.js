@@ -1,5 +1,5 @@
 function sentMail(e) {
-    alert("ok");
+
     var subject = $("#txt_subject").val();
     var message = $("#txt_message").val();
 

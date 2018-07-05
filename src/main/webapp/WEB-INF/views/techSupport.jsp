@@ -75,7 +75,7 @@
                                     </p>
                                     <p>
                                         <small>Address</small>
-                                        <br/>23 mile post,mangalagama,ampara
+                                        <br/>Ampara
                                     </p>
                                 </div>
                             </div>
@@ -111,7 +111,7 @@
                                     </p>
                                     <p>
                                         <small>Address</small>
-                                        <br/>123 45 Street San Francisco, CA, USA
+                                        <br/>Matara
                                     </p>
                                 </div>
                             </div>
@@ -166,7 +166,7 @@
             </div>
             <div class="mb-footer">
                 <div class="pull-right">
-                    <a href="/" class="btn btn-success btn-lg">Yes</a>
+                    <a href="/logout" class="btn btn-success btn-lg">Yes</a>
                     <button class="btn btn-default btn-lg mb-control-close">No</button>
                 </div>
             </div>

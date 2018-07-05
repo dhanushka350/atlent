@@ -16,6 +16,10 @@ $("#loginButton").click(function (e) {
     login();
     e.preventDefault();
 });
+$(".log").click(function (e) {
+    noty({text: 'Disabled for security reasons..', layout: 'topRight', type: 'error'});
+    e.preventDefault();
+});
 
 function login() {
     var name = $("#txt_name").val();

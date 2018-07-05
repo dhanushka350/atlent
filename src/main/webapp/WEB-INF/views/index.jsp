@@ -54,16 +54,16 @@
                 <div class="login-or">OR</div>
                 <div class="form-group">
                     <div class="col-md-4">
-                        <button class="btn btn-info btn-block btn-twitter"><span class="fa fa-twitter"></span> Twitter
+                        <button class="btn btn-info btn-block btn-twitter log"><span class="fa fa-twitter"></span> Twitter
                         </button>
                     </div>
                     <div class="col-md-4">
-                        <button class="btn btn-info btn-block btn-facebook"><span class="fa fa-facebook"></span>
+                        <button class="btn btn-info btn-block btn-facebook log"><span class="fa fa-facebook"></span>
                             Facebook
                         </button>
                     </div>
                     <div class="col-md-4">
-                        <button class="btn btn-info btn-block btn-google"><span class="fa fa-google-plus"></span> Google
+                        <button class="btn btn-info btn-block btn-google log"><span class="fa fa-google-plus"></span> Google
                         </button>
                     </div>
                 </div>

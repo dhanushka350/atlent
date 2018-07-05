@@ -17,6 +17,11 @@ public class ViewHandlerController {
         
         return new ModelAndView("index");
     }
+    @RequestMapping(value = {"/logout"}, method = RequestMethod.GET)
+    public ModelAndView logout() {
+
+        return new ModelAndView("index");
+    }
 
     @RequestMapping(value = {"dashboard"}, method = RequestMethod.GET)
     public ModelAndView getAdminDashboard() {

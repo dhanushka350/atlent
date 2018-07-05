@@ -61,8 +61,8 @@
                             </div>
                             <div>
                                 <div class="widget-title">Registered Count</div>
-                                <div class="widget-subtitle">Today</div>
-                                <div class="widget-int">1,695</div>
+                                <div class="widget-subtitle">all</div>
+                                <div class="widget-int" id="regi_count">1,695</div>
                             </div>
                             <div>
                                 <div class="widget-title">New</div>

@@ -35,17 +35,22 @@ public class Registration implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "registration", fetch = FetchType.LAZY)
     private List<RegistrationPackageDetails> packageDetails = new ArrayList<>();
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "trainee", fetch = FetchType.LAZY)
+    private List<TrainingAttendence> attendences  = new ArrayList<>();
+
+
     public Registration() {
     }
 
 
-    public Registration(Student student, Branch regBranch, String date, String fee, List<ExamSchedule> examSchedules, List<RegistrationPackageDetails> packageDetails) {
+    public Registration(Student student, Branch regBranch, String date, String fee, List<ExamSchedule> examSchedules, List<RegistrationPackageDetails> packageDetails, List<TrainingAttendence> attendences) {
         this.student = student;
         this.regBranch = regBranch;
         this.date = date;
         this.fee = fee;
         this.examSchedules = examSchedules;
         this.packageDetails = packageDetails;
+        this.attendences = attendences;
     }
 
     public static long getSerialVersionUID() {
@@ -108,17 +113,25 @@ public class Registration implements Serializable {
         this.packageDetails = packageDetails;
     }
 
+    public List<TrainingAttendence> getAttendences() {
+        return attendences;
+    }
+
+    public void setAttendences(List<TrainingAttendence> attendences) {
+        this.attendences = attendences;
+    }
+
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("Registration{");
-        sb.append("id=").append(id);
-        sb.append(", student=").append(student);
-        sb.append(", regBranch=").append(regBranch);
-        sb.append(", date='").append(date).append('\'');
-        sb.append(", fee='").append(fee).append('\'');
-        sb.append(", examSchedules=").append(examSchedules);
-        sb.append(", packageDetails=").append(packageDetails);
-        sb.append('}');
-        return sb.toString();
+        return "Registration{" +
+                "id=" + id +
+                ", student=" + student +
+                ", regBranch=" + regBranch +
+                ", date='" + date + '\'' +
+                ", fee='" + fee + '\'' +
+                ", examSchedules=" + examSchedules +
+                ", packageDetails=" + packageDetails +
+                ", attendences=" + attendences +
+                '}';
     }
 }

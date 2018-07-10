@@ -18,7 +18,7 @@ public class AuroraMailSystem {
 
     private String userName = "auroradevops@gmail.com";
 
-    private String password = "Mahamodara1234";
+    private String password = "Aurora@1234";
 
     public void reportException(Exception e) {
         MailDto dto = new MailDto();
@@ -60,16 +60,14 @@ public class AuroraMailSystem {
 
             Multipart multipart = new MimeMultipart();
             multipart.addBodyPart(messageBodyPart);
-            MimeBodyPart attactPart = new MimeBodyPart();
-
-            attactPart.attachFile("C:\\Users\\Akvasoft\\Documents\\Dhanushka\\error.jpg");
-            multipart.addBodyPart(attactPart);
+//            MimeBodyPart attactPart = new MimeBodyPart();
+//
+//            attactPart.attachFile("C:\\Users\\Akvasoft\\Documents\\Dhanushka\\error.jpg");
+//            multipart.addBodyPart(attactPart);
             msg.setContent(multipart);
             Transport.send(msg);
 
         } catch (MessagingException e1) {
-            e1.printStackTrace();
-        } catch (IOException e1) {
             e1.printStackTrace();
         }
 

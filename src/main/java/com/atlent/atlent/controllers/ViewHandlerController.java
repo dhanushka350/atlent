@@ -83,4 +83,9 @@ public class ViewHandlerController {
         return new ModelAndView("pages-error-404");
     }
 
+    @RequestMapping(value = {"training/schedule"}, method = RequestMethod.GET)
+    public ModelAndView training() {
+
+        return new ModelAndView("training_schedule");
+    }
 }

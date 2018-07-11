@@ -90,7 +90,7 @@
                                     <img src="/assets/images/users/user7.jpg" alt="Dmitry Ivaniuk"/>
                                 </div>
                                 <div class="profile-data">
-                                    <div class="profile-data-name">Sanju Chandimal</div>
+                                    <div class="profile-data-name">Sajith Chandimal</div>
                                     <div class="profile-data-title">Web Developer / UI/UX Designer / Software Engineer
                                     </div>
                                 </div>
@@ -103,11 +103,11 @@
                                 <div class="contact-info">
                                     <p>
                                         <small>Mobile</small>
-                                        <br/>(333) 333-33-22
+                                        <br/>(+94) 767-969-333
                                     </p>
                                     <p>
                                         <small>Email</small>
-                                        <br/>dmitry@domain.com
+                                        <br/>sanjuchandimal.net@gmail.com
                                     </p>
                                     <p>
                                         <small>Address</small>

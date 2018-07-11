@@ -38,7 +38,7 @@
                 class="xn-text">Exam Schedules</span></a>
     </li>
     <li  id="training" onclick="setActiveClass(this.id)">
-        <a href="/page/not found"><span class="fa fa-calendar"></span> <span
+        <a href="/training/schedule"><span class="fa fa-calendar"></span> <span
                 class="xn-text">Training Schedule</span></a>
     </li>
     <li  id="sms" onclick="setActiveClass(this.id)">

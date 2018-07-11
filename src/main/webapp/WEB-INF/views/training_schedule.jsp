@@ -97,7 +97,7 @@
 
                                             <div class="col-md-4">
                                                 <button type="button" class="btn btn-success mb-control col-md-6"
-                                                        id="btn_save_training" style="margin-left: 50px;">Add Training
+                                                        id="btn_save_training" style="margin-left: 50px;">Add Schedule
                                                 </button>
                                             </div>
                                         </div>
@@ -114,10 +114,15 @@
                 <div class="col-md-12">
                     <!-- schedule table -->
                     <div class="panel-body">
+                        <p>training date eka select kalama name ekata pahala tiyena date eka fill wenna ona(combo eka hariyawi ekata data load kalama)</p>
+                        <p>nic eka dunnama name eka filter krla danna ona</p>
+                        <p>date eka select kalama ee date ekema time deka thunak tiyenna puluwan nisa ehema tiyenawa nm ewa serama time kiyana combo ekata load krnna ona... eken adala time eka select kalama tama ee time eka ara disabled krla tiyena txt ekata yanna ona</p>
+                        <p>udama tiyena search ekata nic eka dunnama eyage date tika pahala table ekata load wenna ona.. default ada idan issarahata tiyena schedule tika load wela tiyenna ona table ekata</p>
+
                         <form id="validate" role="form" class="form-horizontal"
                               action="javascript:alert('Form #validate submited');">
                             <div class="form-group">
-                                <label class="col-md-3 control-label">Exam Date :</label>
+                                <label class="col-md-3 control-label">Training Date :</label>
                                 <div class="col-md-3">
                                     <select id="select_exam" data-live-search="true">
 
@@ -135,12 +140,11 @@
                         <br>
                         <form role="form" class="form-horizontal">
                             <div class="form-group">
-                                <label class="col-md-3 control-label">Exam Type :</label>
+                                <label class="col-md-3 control-label">Time :</label>
                                 <div class="col-md-3">
-                                    <select class="validate[required] select" id="select_exam_states"
-                                            disabled="disabled">
-                                        <option value="Trial">Trial</option>
-                                        <option value="Exam">Exam</option>
+                                    <select class="validate[required] select" id="select_exam_states">
+                                        <option value="1"> 10.30 Am</option>
+                                        <option value="2"> 12.30 Am</option>
                                     </select>
                                     <span class="help-block"></span>
                                 </div>
@@ -154,12 +158,12 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-3 control-label">States :</label>
+                                <label class="col-md-3 control-label">Trainer :</label>
                                 <div class="col-md-3">
                                     <select class="validate[required] select" id="select_states">
-                                        <option value="Pass">Pass</option>
-                                        <option value="Failed">Failed</option>
-                                        <option value="Result_Pending">Result Pending</option>
+                                        <option value="kasun">kasun</option>
+                                        <option value="damith">damith</option>
+                                        <option value="amila">amila</option>
                                     </select>
                                     <span class="help-block"></span>
                                 </div>
@@ -174,7 +178,16 @@
 
                             </div>
                             <div class="form-group">
-                                <div class="col-md-6"></div>
+
+                                    <label class="col-md-3 control-label">Vehicle No :</label>
+                                    <div class="col-md-3">
+                                        <select class="validate[required] select" id="select_vehical">
+                                            <option value="1"> NO 1</option>
+                                            <option value="2"> NO 2</option>
+                                        </select>
+                                        <span class="help-block"></span>
+                                    </div>
+
                                 <label class="col-md-3 control-label">Time:</label>
                                 <div class="col-md-3    ">
                                     <input type="text"
@@ -198,7 +211,7 @@
                 <!-- START DATATABLE EXPORT -->
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Exam Dates</h3>
+                        <h3 class="panel-title">Training Dates</h3>
                         <div class="btn-group pull-right">
                             <button class="btn btn-danger dropdown-toggle" data-toggle="dropdown"><i
                                     class="fa fa-bars"></i> Export Data
@@ -256,7 +269,8 @@
                                 <th>Nic</th>
                                 <th>Training Date</th>
                                 <th>Training Time</th>
-                                <th>Attendence</th>
+                                <th>Trainer</th>
+                                <th>Vehical</th>
                             </tr>
                             </thead>
                             <tbody>

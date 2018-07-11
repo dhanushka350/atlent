@@ -33,9 +33,9 @@ var Training = {
         var e = {};
         e["id"] = "";
         if ($('#txt_training_date').val().length < 2) {
-            noty({text: 'please enter exam date', layout: 'topRight', type: 'error'});
+            noty({text: 'please enter training date', layout: 'topRight', type: 'error'});
         } else if ($('#txt_training_time').val().length < 2) {
-            noty({text: 'please enter exam time', layout: 'topRight', type: 'error'});
+            noty({text: 'please enter time', layout: 'topRight', type: 'error'});
         } else {
             e["date"] = $('#txt_training_date').val();
             e["time"] = $('#txt_training_time').val();

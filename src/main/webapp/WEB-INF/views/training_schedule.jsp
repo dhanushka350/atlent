@@ -85,19 +85,19 @@
                                             <div class="col-md-4">
                                                 <input type="text"
                                                        class="validate[required,custom[integer],min[18],max[120]] form-control"
-                                                       id="txt_new_exam" placeholder="DATE"/>
+                                                       id="txt_training_date" placeholder="DATE"/>
                                                 <span class="help-block">Required, format YYYY-MM-DD</span>
                                             </div>
                                             <div class="col-md-4">
                                                 <input type="text"
                                                        class="validate[required,custom[integer],min[18],max[120]] form-control"
-                                                       id="txt_new_time" placeholder="TIME"/>
+                                                       id="txt_training_time" placeholder="TIME"/>
                                                 <span class="help-block">Required, format hh-mm am/pm</span>
                                             </div>
 
                                             <div class="col-md-4">
                                                 <button type="button" class="btn btn-success mb-control col-md-6"
-                                                        id="btn_save_exam" style="margin-left: 50px;">Add Exam
+                                                        id="btn_save_training" style="margin-left: 50px;">Add Training
                                                 </button>
                                             </div>
                                         </div>
@@ -349,7 +349,7 @@
 </script>
 <script type="text/javascript" src="/js/plugins.js"></script>
 <script type="text/javascript" src="/js/actions.js"></script>
-<script type="text/javascript" src="/js/app_js/Exam.js"></script>
+<script type="text/javascript" src="/js/app_js/Training.js"></script>
 <script type='text/javascript' src='/js/plugins/bootstrap/bootstrap-select.js'></script>
 <!-- END TEMPLATE -->
 </body>
